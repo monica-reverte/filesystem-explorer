@@ -24,7 +24,7 @@
     <main>
 
         <div class="subHeader">
-            <button>New</button>
+            <button class="newButton">New</button>
             <button>Upload</button>
         </div>
     
