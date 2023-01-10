@@ -24,19 +24,26 @@
             <button>New</button>
             <button>Upload</button>
         </div>
-        <div>
-            <h2>Aside</h2>
-                <p>Folder</p>
-                <p>Folder</p>
+    <div class="mainDiv">
+        <div class="aside">
+            <h2 class="asideContent">Aside</h2>
+                <p class="asideContent">Folder</p>
+                <p class="asideContent">Folder</p>
+                <p class="asideContent">Folder</p>
+                <p class="asideContent">Folder</p>
+                <p class="asideContent">Folder</p>
+                <p class="asideContent">Folder</p>
+                <p class="asideContent">Folder</p>
+                <p class="asideContent">Folder</p>
         </div>
 
-        <div>
+        <div class="mainFolder">
             <h2>Open Folder</h2>
-            <button>Edit</button>
-            <button>Delete</button>
+            <button class="buttonFolder">Edit</button>
+            <button class="buttonFolder">Delete</button>
 
         </div>
-
+    </div>
 
 </main>
 </body>
