@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Document</title>
+    <script src="logic.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 
 
 
@@ -24,18 +27,10 @@
             <button>New</button>
             <button>Upload</button>
         </div>
-    <div class="mainDiv">
+    
         <div class="aside">
             <h2 class="asideContent">Aside</h2>
-                <p class="asideContent">Folder</p>
-                <p class="asideContent">Folder</p>
-                <p class="asideContent">Folder</p>
-                <p class="asideContent">Folder</p>
-                <p class="asideContent">Folder</p>
-                <p class="asideContent">Folder</p>
-                <p class="asideContent">Folder</p>
-                <p class="asideContent">Folder</p>
-        </div>
+
 
         <div class="mainFolder">
             <h2>Open Folder</h2>
@@ -48,3 +43,14 @@
 </main>
 </body>
 </html>
+
+<?php
+
+$files = scandir("uploads/"); // obtener una lista de los archivos en la carpeta "uploads"
+foreach($files as $file){ // Iterar a través de la lista de archivos
+  if($file == "." || $file == ".."){continue;} // ignorar archivos ocultos
+  echo '<a class="filesDisplay" href="uploads/'.$file.'">'.$file.'</a>'; // mostrar nombre de archivo con link para descargarlo
+}
+
+?>
+

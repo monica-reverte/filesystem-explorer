@@ -63,17 +63,8 @@ main{
     gap: 10px;
 }
 
-.mainDiv{
-     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-}
-
-/* .buttonFolder{
+a{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 10px;
-
-} */
+}
