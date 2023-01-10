@@ -24,7 +24,7 @@
             <button>New</button>
             <button>Upload</button>
         </div>
-    <div>
+    <div class="mainDiv">
         <div class="aside">
             <h2 class="asideContent">Aside</h2>
                 <p class="asideContent">Folder</p>
