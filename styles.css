@@ -1,6 +1,6 @@
 body{
-    display: flex;
-    flex-direction: row;
+    display: row;
+    flex-direction: column;
     flex-wrap: wrap;
 
 }
@@ -44,7 +44,7 @@ main{
     flex-direction: column;
     border: 1px solid black;
     width: 20%;
-    height: 100%;
+    height: 50rem;
     margin-top: 5%;
 }
 
@@ -63,10 +63,9 @@ main{
     gap: 10px;
 }
 
-
-/* .buttonFolder{
+.files{
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
 
-} */
