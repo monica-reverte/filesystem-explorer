@@ -46,10 +46,20 @@
 
 <?php
 
-$files = scandir("uploads/"); // obtener una lista de los archivos en la carpeta "uploads"
-foreach($files as $file){ // Iterar a través de la lista de archivos
-  if($file == "." || $file == ".."){continue;} // ignorar archivos ocultos
-  echo '<a class="filesDisplay" href="uploads/'.$file.'">'.$file.'</a>'; // mostrar nombre de archivo con link para descargarlo
+// $files = scandir("uploads/"); // obtener una lista de los archivos en la carpeta "uploads"
+// foreach($files as $file){ // Iterar a través de la lista de archivos
+//   if($file == "." || $file == ".."){continue;} // ignorar archivos ocultos
+//   echo '<a class="filesDisplay" href="uploads/'.$file.'">'.$file.'</a>'; // mostrar nombre de archivo con link para descargarlo
+// }
+
+$thefolder = "uploads/";
+if ($handler = opendir($thefolder)) {
+	echo "<ul>";
+    while (false !== ($file = readdir($handler))) {
+            echo "<li>$file</li>";
+    }
+    echo "</ul>";
+    closedir($handler);
 }
 
 ?>
