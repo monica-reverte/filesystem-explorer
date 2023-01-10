@@ -19,12 +19,11 @@
         </header> 
 
     <main>
-         
+
         <div class="subHeader">
             <button>New</button>
             <button>Upload</button>
         </div>
-
         <div>
             <h2>Aside</h2>
                 <p>Folder</p>
