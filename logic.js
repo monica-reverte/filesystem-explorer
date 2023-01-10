@@ -1,12 +1,15 @@
 
-$.ajax({
-    url: 'upload.php',
-    type: 'POST',
-    data: new FormData(form),
-    success: function (data) {
-        // manejar la respuesta del servidor
-    },
-    cache: false,
-    contentType: false,
-    processData: false
- });
+const data = {nombre: 'valor'};
+
+fetch('index.php', {
+  method: 'POST',
+  body: JSON.stringify(data),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+.then(response => response.text())
+.then(data => {
+    // manejar la respuesta del servidor
+})
+.catch(error => console.error(error));
