@@ -28,9 +28,10 @@
             <button>Upload</button>
         </div>
     
-        <div class="aside">
+        <!-- <div class="aside" id = "aside">
             <h2 class="asideContent">Aside</h2>
 
+        </div> -->
 
         <div class="mainFolder">
             <h2>Open Folder</h2>
@@ -38,19 +39,23 @@
             <button class="buttonFolder">Delete</button>
 
         </div>
-    </div>
-
+   
 </main>
+
+
 </body>
 </html>
 
 <?php
 
 $files = scandir("uploads/"); // obtener una lista de los archivos en la carpeta "uploads"
+$contenedor = '';
+$files = scandir("uploads/"); // obtener una lista de los archivos en la carpeta "uploads"
 foreach($files as $file){ // Iterar a través de la lista de archivos
   if($file == "." || $file == ".."){continue;} // ignorar archivos ocultos
-  echo '<a class="filesDisplay" href="uploads/'.$file.'">'.$file.'</a>'; // mostrar nombre de archivo con link para descargarlo
+  $contenedor .= '<a class="files" href="uploads/'.$file.'">'.$file. '</a>';  // agregar enlace a la variable
 }
+echo '<div class="aside">' . $contenedor . '</div>';  // añadir los enlaces al contenedor
 
 ?>
 
