@@ -7,17 +7,23 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Document</title>
 </head>
+
+
+
 <body>
+        <header>         
+            <nav class="navBar" >
+                    <h1>NavBar</h1>
+            </nav> 
+
+        </header> 
+
     <main>
-
-        <nav>
-            <h1>NavBar</h1>
-        </nav>
-
-        <header>
+         
+        <div class="subHeader">
             <button>New</button>
             <button>Upload</button>
-        </header>
+        </div>
 
         <div>
             <h2>Aside</h2>

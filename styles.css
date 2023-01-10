@@ -1,0 +1,40 @@
+body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+
+.navBar{
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    border:1px solid black ;
+    text-align: center;
+    margin: auto;
+    padding-right: 70rem;
+
+}
+
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.subHeader{
+
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    border:1px solid black ;
+    text-align: center;
+    margin-top: 5rem;
+
+}
