@@ -16,21 +16,21 @@ folders.forEach(folder => {
 
 
 
-newButton = document.querySelector(".newButton");
-newButton.addEventListener("click", newFile);
+// newButton = document.querySelector(".newButton");
+// newButton.addEventListener("click", newFile);
 
-function newFile() {
-    const filename = prompt("Enter folder/file name");
+// function newFile() {
+//     const filename = prompt("Enter folder/file name");
 
-    if(filename) {
-        post("create.php", {filename, dir}, function(data) {
-        if(data == true) {
-            openFolder(dir);
-        }
-        else {
-            console.log(data);
-        }
-        closeMenu();
-        });
-    }
-}
+//     if(filename) {
+//         post("create.php", {filename, dir}, function(data) {
+//         if(data == true) {
+//             openFolder(dir);
+//         }
+//         else {
+//             console.log(data);
+//         }
+//         closeMenu();
+//         });
+//     }
+// }
