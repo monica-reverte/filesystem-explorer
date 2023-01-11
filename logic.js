@@ -13,3 +13,4 @@ fetch('index.php', {
     // manejar la respuesta del servidor
 })
 .catch(error => console.error(error));
+
