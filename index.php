@@ -27,16 +27,14 @@
     <main>
 
         <div class="subHeader">
-            <button>New</button>
+            <button class="newButton">New</button>
             <button>Upload</button>
         </div>
+        <div id="container-menu" class="aside">
+           <button id="menu-button">Menu</button>
+        </div>
     
-        <!-- <div class="aside" id = "aside">
-            <h2 class="asideContent">Aside</h2>
-
-        </div> -->
-
-        <div class="mainFolder">
+        <div class="mainFolder" >
             <h2>Open Folder</h2>
             <button class="buttonFolder">Edit</button>
             <button class="buttonFolder">Delete</button>
@@ -48,17 +46,4 @@
 
 </body>
 </html>
-
-<?php
-
-$files = scandir("uploads/"); // obtener una lista de los archivos en la carpeta "uploads"
-$contenedor = '';
-$files = scandir("uploads/"); // obtener una lista de los archivos en la carpeta "uploads"
-foreach($files as $file){ // Iterar a través de la lista de archivos
-  if($file == "." || $file == ".."){continue;} // ignorar archivos ocultos
-  $contenedor .= '<a class="files" href="uploads/'.$file.'">'.$file. '</a>';  // agregar enlace a la variable
-}
-echo '<div class="aside">' . $contenedor . '</div>';  // añadir los enlaces al contenedor
-
-?>
 
