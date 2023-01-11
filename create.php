@@ -1,9 +1,7 @@
 <?php
 
-
-
-	$pathFolder=$_SESSION["newsession"];
-	$my_dir = $_POST['filename'];
+session_start
+	$file = $_POST['filename'];
 	$dir = str_replace('\\', '/', realpath($_POST['dir']));
 	$dst = $dir . '/' . $file;
 
@@ -32,8 +30,8 @@
 
 ?>
 
-<?php  
-  session_start();
+
+session_start();
  $pathFolder=$_SESSION["newsession"];
 //echo 'session'. $_POST['folder-name'];
  #if the user entered a folder name we proceed

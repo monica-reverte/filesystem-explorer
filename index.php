@@ -31,8 +31,10 @@
             <button>Upload</button>
         </div>
         <div id="container-menu" class="aside">
-           <button id="menu-button">Menu</button>
-        </div>
+          <button id="menu-button">Open menu</button>
+          <?php generateMenu("root"); ?>
+       </div>
+        
     
         <div class="mainFolder" >
             <h2>Open Folder</h2>
@@ -43,7 +45,34 @@
    
 </main>
 
-
 </body>
 </html>
+
+<?php
+function generateMenu($folder) {
+    // Use scandir to get the files and folders inside the folder
+    $files = array_diff(scandir($folder), array('.','..'));
+
+
+    // Create a list element
+    echo "<ul id='menu'>";
+    
+    // Loop through the files and folders
+    foreach ($files as $file) {
+        // Check if the file is a folder
+        if (is_dir("$folder/$file")) {
+            // If it is a folder, create a list item with the folder name
+            echo "<li class='folder'>" . $file;
+            // Call the function recursively to generate the submenu for the folder
+            generateMenu("$folder/$file");
+            echo "</li>";
+        } else {
+            // If it is a file, create a list item with a link to the file
+            echo "<li><a href='root/" . $file . "'>" . $file . "</a></li>";
+        }
+    }
+    echo "</ul>";
+}
+
+?>
 
