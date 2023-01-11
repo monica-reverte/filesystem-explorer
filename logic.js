@@ -1,30 +1,18 @@
-let submenu;
 
-fetch("back.php")
-    .then(response => response.json())
-    .then(data => {
-    // code to create submenu
-    submenu = document.createElement("ul");
-    data.forEach(file => {
-        if (file == "." || file == "..") { return; }
-        const archivo = document.createElement("li");
-        const enlace = document.createElement("a");
-        enlace.href = `/uploads/${file}`;
-        enlace.innerHTML = file;
-        enlace.target = "_blank" //para que se abra en una nueva pestaña
-        archivo.appendChild(enlace);
-        submenu.appendChild(archivo);
-    });
-    //Agrega el submenu al elemento deseado
-    const container = document.getElementById("container-menu");
-    container.appendChild(submenu);
-});
+const data = {nombre: 'valor'};
 
-const btnMenu = document.getElementById("menu-button");
-btnMenu.addEventListener("click", function() {
-    submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-});
-
+fetch('index.php', {
+  method: 'POST',
+  body: JSON.stringify(data),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+.then(response => response.text())
+.then(data => {
+    // manejar la respuesta del servidor
+})
+.catch(error => console.error(error));
 
 //New Folder
 
