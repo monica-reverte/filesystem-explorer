@@ -32,7 +32,7 @@
         </div>
         <div id="container-menu" class="aside">
           <button id="menu-button">Open menu</button>
-          <?php generateMenu("uploads"); ?>
+          <?php generateMenu("root"); ?>
        </div>
         
     
@@ -68,7 +68,7 @@ function generateMenu($folder) {
             echo "</li>";
         } else {
             // If it is a file, create a list item with a link to the file
-            echo "<li><a href='uploads/" . $file . "'>" . $file . "</a></li>";
+            echo "<li><a href='root/" . $file . "'>" . $file . "</a></li>";
         }
     }
     echo "</ul>";
