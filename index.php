@@ -16,7 +16,6 @@
 
 
 
-
 <body>
         <header>         
         <nav class="navBar" >
@@ -46,9 +45,9 @@
                             <input type="text" class="form-control" id="formGroupExampleInput" name="file-name">
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div id="form-id" class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Accept</button>
+                        <button id="your-id" type="submit" class="btn btn-primary">Accept</button>
                     </div>
                 </div>
             </div>

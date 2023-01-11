@@ -4,22 +4,28 @@
 	$path = "root/";
 	$dir = $path . '/' . $fileName;
 
-	if(is_dir($dir)) {
-		echo 'File Exists';
+	if(file_exists($dir)) {
+		echo'<script type="text/javascript"> alert("File Exists"); window.location.href="index.php";</script>';
+		
 	}
 	else {
 		//Check if it should be a folder or file
 		if(strpos($fileName, '.') > 1) {
 			if(touch($dir)) {
-				echo true;
+				echo "<li><a href='root/" . $file . "'>" . $fileName . "</a></li>";
+				header('Location: index.php');
+				
 			}
 			else {
-				echo 'Failed to create file';
+				echo'<script type="text/javascript"> alert("Failed to create file"); window.location.href="index.php";</script>';
+				
 			}
 		}		
 		else {
 			if(mkdir($dir)) {
-				echo true;
+				echo "<li class='folder'>" . $fileName;
+				header('Location: index.php');
+				
 			}
 			else {
 				echo 'Failed to create folder';

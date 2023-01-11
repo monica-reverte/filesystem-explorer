@@ -12,25 +12,11 @@ folders.forEach(folder => {
         submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     });
 });
-//New Folder
 
+//Submit
 
+const submit = document.getElementById("form-id");
 
-// newButton = document.querySelector(".newButton");
-// newButton.addEventListener("click", newFile);
-
-// function newFile() {
-//     const filename = prompt("Enter folder/file name");
-
-//     if(filename) {
-//         post("create.php", {filename, dir}, function(data) {
-//         if(data == true) {
-//             openFolder(dir);
-//         }
-//         else {
-//             console.log(data);
-//         }
-//         closeMenu();
-//         });
-//     }
-// }
+document.getElementById("your-id").addEventListener("click", function () {
+  form.submit();
+});
