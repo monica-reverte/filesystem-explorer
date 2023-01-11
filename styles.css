@@ -63,10 +63,20 @@ main{
     gap: 10px;
 }
 
-.files{
+.folder ul {
     display: none;
-
-    flex-direction: column;
-    flex-wrap: wrap;
+    list-style-type: none;
 }
 
+.folder{
+    list-style-type: none;
+}
+
+
+.folder:hover{
+   cursor: pointer;
+}
+
+#menu{
+    list-style-type: none;
+}
