@@ -63,10 +63,4 @@ main{
     gap: 10px;
 }
 
-.files{
-    display: none;
-
-    flex-direction: column;
-    flex-wrap: wrap;
-}
 
