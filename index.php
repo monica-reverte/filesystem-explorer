@@ -15,9 +15,12 @@
 
 <body>
         <header>         
-            <nav class="navBar" >
-                    <h1>NavBar</h1>
-            </nav> 
+        <nav class="navBar" >
+    <form action="procesar.php" method="post">
+        <input name="nombre" type="text" placeholder="Buscador">
+        <input type="submit" value="Buscar">
+    </form>
+            </nav>  
 
         </header> 
 
