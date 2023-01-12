@@ -33,7 +33,7 @@
         $valid_folders = ['folder1', 'folder2', 'folder3'];
         $folder_name = $_POST["folder_select"];
         if(in_array($folder_name, $valid_folders)){
-            $target_dir = "uploads/" . $_POST["folder_select"] . "/";
+            $target_dir = "root/" . $_POST["folder_select"] . "/";
             echo $target_dir;
             $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
