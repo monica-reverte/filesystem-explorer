@@ -1,5 +1,5 @@
 <?php
-    $target_dir = "uploads/";
+    $target_dir = "root/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $target_file = $target_dir . uniqid() . '.' . $imageFileType;
     $uploadOk = 1;
@@ -33,7 +33,7 @@
         $valid_folders = ['folder1', 'folder2', 'folder3'];
         $folder_name = $_POST["folder_select"];
         if(in_array($folder_name, $valid_folders)){
-            $target_dir = "uploads/" . $_POST["folder_select"] . "/";
+            $target_dir = "root/" . $_POST["folder_select"] . "/";
             echo $target_dir;
             $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -43,11 +43,11 @@
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
-       } else {
+        } else {
             // Error, folder name is not valid
-       }
+        }
 
-       if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // tu codigo de subida de archivo
         }
     ?>

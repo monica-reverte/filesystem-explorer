@@ -86,11 +86,10 @@
             </nav> 
 
 
-          <button id="menu-button">Open menu</button>
-          <?php generateMenu("uploads"); ?>
-       </div>
+            <button id="menu-button">Open menu</button>
+            <?php generateMenu("root"); ?>
+        </div>
 
-       
         
     
         <div class="mainFolder" >
