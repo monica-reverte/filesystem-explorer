@@ -5,5 +5,8 @@
 	$dir = $path . '/' . $fileName;
 
 
+    unlink($dir);
+
+
 
 ?>
