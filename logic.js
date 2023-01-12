@@ -17,27 +17,6 @@ folders.forEach(folder => {
 
 const submit = document.getElementById("form-id");
 
-<<<<<<< HEAD
-// newButton = document.querySelector(".newButton");
-// newButton.addEventListener("click", newFile);
-
-// function newFile() {
-//     const filename = prompt("Enter name");
-
-//     if(filename) {
-//         post("create.php", {filename, dir}, function(data) {
-//         if(data == true) {
-//             openFolder(dir);
-//         }
-//         else {
-//             console.log(data);
-//         }
-//         closeMenu();
-//         });
-//     }
-// }
-=======
 document.getElementById("your-id").addEventListener("click", function () {
   form.submit();
 });
->>>>>>> a8cc758da59e933d1c22915ad5bb596a758ac5fd
