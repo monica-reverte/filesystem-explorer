@@ -14,26 +14,55 @@
 
 
 <body>
-        <header>         
+        <header class="header">         
         <nav class="navBar" >
-    <form action="procesar.php" method="post">
+    <!-- <form action="procesar.php" method="post">
         <input name="nombre" type="text" placeholder="Buscador">
         <input type="submit" value="Buscar">
-    </form>
+    </form> -->
             </nav>  
 
         </header> 
 
-    <main>
+    <main class="main">
 
         <div class="subHeader">
-            <button class="newButton">New</button>
-            <button>Upload</button>
+        <form action="back.php" method="post" enctype="multipart/form-data">
+   <label for="folder_select">Select Folder:</label>
+   <select name="folder_select" id="folder_select">
+       <option value="folder1">Folder 1</option>
+       <option value="folder2">Folder 2</option>
+       <option value="folder3">Folder 3</option>
+   </select>
+   <input type="file" name="fileToUpload" id="fileToUpload">
+   <input type="submit" value="Upload File" name="submit">
+  </form>
+        
         </div>
+
+
         <div id="container-menu" class="aside">
+
+            <nav>
+
+            <label for="touch"><span>titre</span></label>               
+            <input type="checkbox" id="touch"> 
+
+            <ul class="slide">
+                <li><a href="#">Lorem Ipsum</a></li> 
+                <li><a href="#">Lorem Ipsum</a></li>
+                <li><a href="#">Lorem Ipsum</a></li>
+                <li><a href="#">Lorem Ipsum</a></li>
+            </ul>
+
+            </nav> 
+
+
           <button id="menu-button">Open menu</button>
           <?php generateMenu("uploads"); ?>
        </div>
+
+       
         
     
         <div class="mainFolder" >
@@ -53,7 +82,7 @@ function generateMenu($folder) {
     // Use scandir to get the files and folders inside the folder
     $files = array_diff(scandir($folder), array('.','..'));
 
-
+    
     // Create a list element
     echo "<ul id='menu'>";
     
@@ -68,7 +97,7 @@ function generateMenu($folder) {
             echo "</li>";
         } else {
             // If it is a file, create a list item with a link to the file
-            echo "<li><a href='uploads/" . $file . "'>" . $file . "</a></li>";
+            echo "<li><a href='$folder/$file'> $file </a></li>";
         }
     }
     echo "</ul>";
