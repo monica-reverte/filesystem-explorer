@@ -19,8 +19,8 @@
 <body>
         <header class="header">         
         <nav class="navBar" >
-    <form action="procesar.php" method="post">
-        <input name="nombre" type="text" placeholder="Buscador">
+    <form action="busqueda.php" method="post">
+        <input name="busquedas" type="text" placeholder="Buscador">
         <input type="submit" value="Buscar">
     </form>
         </nav>  
