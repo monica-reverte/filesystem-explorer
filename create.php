@@ -5,7 +5,7 @@
 	$dir = $path . '/' . $fileName;
 
 	if(file_exists($dir)) {
-		echo'<script type="text/javascript"> alert("File Exists"); window.location.href="index.php";</script>';
+		echo'<script type="text/javascript"> alert("Already Exists"); window.location.href="index.php";</script>';
 		
 	}
 	else {
@@ -18,6 +18,7 @@
 			}
 			else {
 				echo'<script type="text/javascript"> alert("Failed to create file"); window.location.href="index.php";</script>';
+				header('Location: index.php');
 				
 			}
 		}		
@@ -29,6 +30,7 @@
 			}
 			else {
 				echo 'Failed to create folder';
+				header('Location: index.php');
 			}
 		}
 	}

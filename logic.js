@@ -20,3 +20,29 @@ const submit = document.getElementById("form-id");
 document.getElementById("your-id").addEventListener("click", function () {
   form.submit();
 });
+
+
+//Open Folder
+
+
+// containerMenu = document.getElementById("container-menu");
+// containerMenu.addEventListener("click", openFolder);
+
+// function openFolder(event) {
+//     let folder = event.target;
+
+//     if (folder.classList.contains("folderBtn")) {
+//         let filePath = folderBtn.dataset.path;
+//         console.log(filePath);
+
+//     fetch("openFolder.php" + "?" + "path=" + filePath, {
+//         method: "GET",
+//     })
+//         .then((response) => response.json())
+//         .then((data) => {
+//         console.log(data);
+//         renderFileInfo(data);
+//         })
+//         .catch((err) => console.log("Request failed: ", err));
+//     }
+// }

@@ -31,15 +31,15 @@
 
         <div class="subHeader">
         <form action="back.php" method="post" enctype="multipart/form-data">
-   <label for="folder_select">Select Folder:</label>
-   <select name="folder_select" id="folder_select">
-       <option value="folder1">Folder 1</option>
-       <option value="folder2">Folder 2</option>
-       <option value="folder3">Folder 3</option>
-   </select>
-   <input type="file" name="fileToUpload" id="fileToUpload">
-   <input type="submit" value="Upload File" name="submit">
-  </form>
+            <label for="folder_select">Select Folder:</label>
+            <select name="folder_select" id="folder_select">
+                <option value="folder1">Folder 1</option>
+                <option value="folder2">Folder 2</option>
+                <option value="folder3">Folder 3</option>
+            </select>
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload File" name="submit">
+        </form>
         
             <button type="button" class="newButton" data-bs-toggle="modal" data-bs-target="#exampleModal">New</button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -70,6 +70,7 @@
 
 
         <div id="container-menu" class="aside">
+        
 
             <nav>
 
@@ -88,14 +89,19 @@
 
             <button id="menu-button">Open menu</button>
             <?php generateMenu("root"); ?>
+            
         </div>
 
         
     
-        <div class="mainFolder" >
+        <div class="mainFolder">
+        
+        
+                
             <h2>Open Folder</h2>
+            
             <button class="buttonFolder">Edit</button>
-            <button class="buttonFolder">Delete</button>
+            <a href="delete.php" class="btn">Delete</a>
 
         </div>
 </main>
