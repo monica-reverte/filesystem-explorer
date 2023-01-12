@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous"></script>
     <script src="logic.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-
 
 
 
@@ -38,6 +41,31 @@
    <input type="submit" value="Upload File" name="submit">
   </form>
         
+            <button type="button" class="newButton" data-bs-toggle="modal" data-bs-target="#exampleModal">New</button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">New</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    <div class="modal-body">
+                        <form action="create.php" method="POST" id="createItems" enctype="multipart/form-data">
+                            <div class="mb-3">  
+                            <label for="formGroupExampleInput" class="form-label">Enter folder/file name</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" name="file-name">
+                        </div>
+                    </div>
+                    <div id="form-id" class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button id="your-id" type="submit" class="btn btn-primary">Accept</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+                        
+            <button>Upload</button>
         </div>
 
 
@@ -71,7 +99,6 @@
             <button class="buttonFolder">Delete</button>
 
         </div>
-   
 </main>
 
 </body>

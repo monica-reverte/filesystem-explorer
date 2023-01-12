@@ -12,10 +12,12 @@ folders.forEach(folder => {
         submenu.style.display = submenu.style.display === "block" ? "none" : "block";
     });
 });
-//New Folder
 
+//Submit
 
+const submit = document.getElementById("form-id");
 
+<<<<<<< HEAD
 // newButton = document.querySelector(".newButton");
 // newButton.addEventListener("click", newFile);
 
@@ -34,3 +36,8 @@ folders.forEach(folder => {
 //         });
 //     }
 // }
+=======
+document.getElementById("your-id").addEventListener("click", function () {
+  form.submit();
+});
+>>>>>>> a8cc758da59e933d1c22915ad5bb596a758ac5fd
