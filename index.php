@@ -87,7 +87,7 @@
 
 
           <button id="menu-button">Open menu</button>
-          <?php generateMenu("uploads"); ?>
+          <?php generateMenu("root"); ?>
        </div>
 
        
