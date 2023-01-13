@@ -13,36 +13,71 @@ folders.forEach(folder => {
     });
 });
 
-//Submit
 
-const submit = document.getElementById("form-id");
+// New Modal
+// Get the modal
+var newmodal = document.getElementById("newModal");
 
-document.getElementById("your-id").addEventListener("click", function () {
-  form.submit();
+// Get the button that opens the modal
+var newBtn = document.getElementById("newBtn");
+
+// Get the <span> element that closes the modal
+var spanN = document.getElementsByClassName("closeNew")[0];
+
+// When the user clicks the button, open the modal 
+newBtn.onclick = function() {
+  newModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+spanN.onclick = function() {
+    newModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    newModal.style.display = "none";
+  }
+}
+
+//Edit
+
+// Get the modal
+var editModal = document.getElementById("editModal");
+
+// Get the button that opens the modal
+var editBtn = document.getElementById("editBtn");
+
+// Get the <span> element that closes the modal
+var spanE = document.getElementsByClassName("closeEdit")[0];
+
+// When the user clicks the button, open the modal 
+editBtn.onclick = function() {
+    editModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+spanE.onclick = function() {
+    editModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    editModal.style.display = "none";
+  }
+}
+
+// Edit
+
+$('#editFileModal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget)
+    var recipient = button.data('old')
+    var oldpath = button.data('path')
+    var modal = $(this);
+    $("#fileName").attr("placeholder", recipient);
+    console.log("This is the recipient ", recipient);
+    modal.find('.modal-body form #oldName').val(recipient);
+    modal.find('.modal-body form #oldPath').val(oldpath);
 });
-
-
-//Open Folder
-
-
-// containerMenu = document.getElementById("container-menu");
-// containerMenu.addEventListener("click", openFolder);
-
-// function openFolder(event) {
-//     let folder = event.target;
-
-//     if (folder.classList.contains("folderBtn")) {
-//         let filePath = folderBtn.dataset.path;
-//         console.log(filePath);
-
-//     fetch("openFolder.php" + "?" + "path=" + filePath, {
-//         method: "GET",
-//     })
-//         .then((response) => response.json())
-//         .then((data) => {
-//         console.log(data);
-//         renderFileInfo(data);
-//         })
-//         .catch((err) => console.log("Request failed: ", err));
-//     }
-// }

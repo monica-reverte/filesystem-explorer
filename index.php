@@ -5,13 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-		crossorigin="anonymous"></script>
     <script src="logic.js" defer></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    
 </head>
 
 
@@ -40,29 +36,33 @@
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload File" name="submit">
         </form>
-        
-            <button type="button" class="newButton" data-bs-toggle="modal" data-bs-target="#exampleModal">New</button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">New</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                    <div class="modal-body">
-                        <form action="create.php" method="POST" id="createItems" enctype="multipart/form-data">
-                            <div class="mb-3">  
-                            <label for="formGroupExampleInput" class="form-label">Enter folder/file name</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" name="file-name">
-                        </div>
-                    </div>
-                    <div id="form-id" class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button id="your-id" type="submit" class="btn btn-primary">Accept</button>
-                    </div>
+
+
+        <button id="newBtn">New</button>
+        <div id="newModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New</h5>
+                        <button class="closeNew close" aria-label="Close alert" type="button" data-close>
+                                <span aria-hidden="true">&times;</span>
+                        </button>
+                        
+                </div>
+                <div class="modal-body">
+                    <form action="create.php" method="POST" id="createItems" enctype="multipart/form-data">
+                        <label for="formGroupExampleInput" class="form-label">Enter folder/file name</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" name="file-name">
+                    </form>
+                </div>           
+                <div id="form-id" class="modal-footer">
+                    <button type="button">Cancel</button>
+                    <button type="submit">Accept</button>
                 </div>
             </div>
         </div>
+
+        
+        
             
                         
             <button>Upload</button>
@@ -99,14 +99,62 @@
         
                 
             <h2>Open Folder</h2>
+
+
+            <button id="editBtn">Edit</button>
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit</h5>
+                        <button class="closeEdit close" aria-label="Close alert" type="button" data-close>
+                                <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="edit.php" method="POST" id="editItems" enctype="multipart/form-data">
+                            <label for="fileName" class="mb-2 modal-item modal-title">File name</label>
+                            <input type="text" name="oldFileName" id="oldName" class="pt-2 pl-3 modal-item" required> <br>
+                            <label for="newName" class="mb-2 modal-item modal-title">New name</label>
+                            <input type="text" id="fileName" name="fileName" class="pt-2 pl-3 modal-item" required>
+                        </form> 
+                    </div>           
+                    <div id="form-id" class="modal-footer">
+                        <button type="button">Cancel</button>
+                        
+                        <button type="submit">Accept</button>
+                    </div>
+                </div>
+            </div>
             
-            <button class="buttonFolder">Edit</button>
-            <a href="delete.php" class="btn">Delete</a>
 
-        </div>
+                <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Rename</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="edit.php" method="POST" id="editItems" enctype="multipart/form-data">
+                                    <div class="mb-3">  
+                                        <label for="fileName" class="mb-2 modal-item modal-title">File name</label>
+                                        <input type="text" name="oldFileName" id="oldName" class="pt-2 pl-3 modal-item" required> <br>
+                                        <label for="newName" class="mb-2 modal-item modal-title">New name</label>
+                                        <input type="text" id="fileName" name="fileName" class="pt-2 pl-3 modal-item" required>
+                                    </div>
+                                </form> 
+                            </div>
+                            <div id="form-id" class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button id="your-id" type="submit" class="btn btn-primary">Accept</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
 </main>
-
 </body>
+
 </html>
 
 <?php
@@ -129,11 +177,10 @@ function generateMenu($folder) {
             echo "</li>";
         } else {
             // If it is a file, create a list item with a link to the file
-            echo "<li><a href='$folder/$file'> $file </a></li>";
+            echo "<li><a href='$folder/$file'> $file </a><button type=button' class='btnEdit' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</button><button type=button' class='btnEdit' data-bs-toggle='modal' data-bs-target='#exampleModal'>Delete</button></li>";
         }
     }
     echo "</ul>";
 }
 
 ?>
-
