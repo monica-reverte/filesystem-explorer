@@ -1,16 +1,19 @@
 <?php
 		$root = "root/";
         $fileName = $_POST["busquedas"];
-        $opendirFile = opendir($root.$fileName);
         if (file_exists($root.$fileName)) {
         if (is_dir($root.$fileName)){
-        while ($elementos = readdir($opendirFile));
-        echo $elementos;
-        }else {
-        echo "no es un folder";
+        $opendirFile = opendir($root.$fileName);
+        while (false !== ($file = readdir($opendirFile))){
+        echo "<a href='$root/$file'> $file <br></a>";
         }
-        } else {
-            echo "el fichero no existe";
+        closedir($opendirFile);
+        }else{
+            echo "<a href='$root/$fileName'> $fileName </a>";
+        }
+        }else {
+        $resultado = $root.$fileName -> fetchAll();
+        echo $resultado;
         }
     ?>
     <a href="index.php">
