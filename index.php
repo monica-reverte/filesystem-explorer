@@ -10,11 +10,6 @@
     
 </head>
 
-<?php
-
-session_start();
-
-?>
 
 
 <body>
@@ -48,21 +43,17 @@ session_start();
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">New</h5>
-                        <button class="closeNew close" aria-label="Close alert" type="button" data-close>
-                                <span aria-hidden="true">&times;</span>
-                        </button>
+                        
                         
                 </div>
                 <div class="modal-body">
                     <form action="create.php" method="POST" id="createItems" enctype="multipart/form-data">
                         <label for="formGroupExampleInput" class="form-label">Enter folder/file name</label>
                         <input type="text" class="form-control" id="formGroupExampleInput" name="file-name">
+                        <button type="cancel">Cancel</button>
+                        <button type="submit">Accept</button>
                     </form>
                 </div>           
-                <div id="form-id" class="modal-footer">
-                    <button type="button">Cancel</button>
-                    <button type="submit">Accept</button>
-                </div>
             </div>
         </div>
 
@@ -106,29 +97,23 @@ session_start();
             <h2>Open Folder</h2>
 
 
-            <button id="editBtn">Edit</button>
-            <div id="editModal" class="modal">
+            
+            <div class="editModal modal">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Edit</h5>
-                        <button class="closeEdit close" aria-label="Close alert" type="button" data-close>
-                                <span aria-hidden="true">&times;</span>
-                        </button>
+                        
                     </div>
                     <div class="modal-body">
                         <form action="edit.php" method="GET" id="editItems" enctype="multipart/form-data">
                             <label for="newName" >New name</label>
-                            <input type="text" id="fileName" name="newName" required>
-                        </form> 
+                            <input type="text" id="fileName" name="newName">
+                            <input type="hidden" name="actualPathFile" id="actualPathFile">
+                            <button type="cancel">Cancel</button>
+                            <button type="submit">Accept</button>
                     </div>           
-                    <div id="form-id" class="modal-footer">
-                        <button type="button">Cancel</button>
-                        
-                        <button type="submit">Accept</button>
-                    </div>
                 </div>
             </div>
-            
 
 </main>
 </body>
@@ -155,7 +140,7 @@ function generateMenu($folder) {
             echo "</li>";
         } else {
             // If it is a file, create a list item with a link to the file
-            echo "<li class='file' name = 'file-name'><a class='input-name' href='$folder/$file'> $file </a><button id='editBtn'>Edit</button><button id='btnDelete' class='btnDelete'>Delete</button></li>";
+            echo "<li class='file' name = 'file-name'><a class='input-name' href='$folder/$file'> $file </a><button actualPath='$folder/$file' class='editBtn'>Edit</button><button actualPath='$folder/$file id='btnDelete' class='btnDelete'>Delete</button></li>";
         }
     }
     echo "</ul>";
