@@ -16,41 +16,35 @@ folders.forEach(folder => {
 
 // New Modal
 // Get the modal
-var newmodal = document.getElementById("newModal");
+const newmodal = document.getElementById("newModal");
 
 // Get the button that opens the modal
-var newBtn = document.getElementById("newBtn");
+const newBtn = document.getElementById("newBtn");
 
 // Get the <span> element that closes the modal
-var spanN = document.getElementsByClassName("closeNew")[0];
+const spanN = document.getElementsByClassName("closeNew")[0];
 
 // When the user clicks the button, open the modal 
 newBtn.onclick = function() {
-  newModal.style.display = "block";
+    newmodal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
 spanN.onclick = function() {
-    newModal.style.display = "none";
+    newmodal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    newModal.style.display = "none";
-  }
-}
 
 //Edit
 
 // Get the modal
-var editModal = document.getElementById("editModal");
+const editModal = document.getElementById("editModal");
 
 // Get the button that opens the modal
-var editBtn = document.getElementById("editBtn");
+const editBtn = document.getElementById("editBtn");
 
 // Get the <span> element that closes the modal
-var spanE = document.getElementsByClassName("closeEdit")[0];
+const spanE = document.getElementsByClassName("closeEdit")[0];
 
 // When the user clicks the button, open the modal 
 editBtn.onclick = function() {
@@ -62,22 +56,70 @@ spanE.onclick = function() {
     editModal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    editModal.style.display = "none";
-  }
-}
 
 // Edit
 
-$('#editFileModal').on('show.bs.modal', function(event) {
-    var button = $(event.relatedTarget)
-    var recipient = button.data('old')
-    var oldpath = button.data('path')
-    var modal = $(this);
-    $("#fileName").attr("placeholder", recipient);
-    console.log("This is the recipient ", recipient);
-    modal.find('.modal-body form #oldName').val(recipient);
-    modal.find('.modal-body form #oldPath').val(oldpath);
-});
+    //Create Input
+
+    // let divMenu = document.querySelector(".aside");
+
+    editBtn.addEventListener("click", createInput);
+    // divName.addEventListener("click", edit);
+
+function createInput(e){
+    let inputName = document.querySelector(".input-name");
+    let input = inputName.innerHTML;
+    let inputPath = inputName.href;
+    // console.log(inputPath);
+    // console.log(input);
+
+  if(e.target.matches(".input-name")){
+    console.log(e.target.matches(".input-name"));
+
+  }
+    
+  }
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+
+
+
+
+
+
+
+// function edit(e){
+//     e.preventDefault();
+
+
+//     fetch("edit.php" + "?" + "name=" + oldName + "&" + "newName=" + newName,
+//     {
+//         method: "GET",
+//     }
+//     )
+//     .then((response) => response.json())
+//     .then((data) => {
+//         console.log(data);
+//     })
+
+// }
+
+
+
+
+
+
+
+

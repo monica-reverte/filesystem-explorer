@@ -10,6 +10,11 @@
     
 </head>
 
+<?php
+
+session_start();
+
+?>
 
 
 <body>
@@ -111,11 +116,9 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="edit.php" method="POST" id="editItems" enctype="multipart/form-data">
-                            <label for="fileName" class="mb-2 modal-item modal-title">File name</label>
-                            <input type="text" name="oldFileName" id="oldName" class="pt-2 pl-3 modal-item" required> <br>
-                            <label for="newName" class="mb-2 modal-item modal-title">New name</label>
-                            <input type="text" id="fileName" name="fileName" class="pt-2 pl-3 modal-item" required>
+                        <form action="edit.php" method="GET" id="editItems" enctype="multipart/form-data">
+                            <label for="newName" >New name</label>
+                            <input type="text" id="fileName" name="newName" required>
                         </form> 
                     </div>           
                     <div id="form-id" class="modal-footer">
@@ -127,31 +130,6 @@
             </div>
             
 
-                <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Rename</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="edit.php" method="POST" id="editItems" enctype="multipart/form-data">
-                                    <div class="mb-3">  
-                                        <label for="fileName" class="mb-2 modal-item modal-title">File name</label>
-                                        <input type="text" name="oldFileName" id="oldName" class="pt-2 pl-3 modal-item" required> <br>
-                                        <label for="newName" class="mb-2 modal-item modal-title">New name</label>
-                                        <input type="text" id="fileName" name="fileName" class="pt-2 pl-3 modal-item" required>
-                                    </div>
-                                </form> 
-                            </div>
-                            <div id="form-id" class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button id="your-id" type="submit" class="btn btn-primary">Accept</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
 </main>
 </body>
 
@@ -177,7 +155,7 @@ function generateMenu($folder) {
             echo "</li>";
         } else {
             // If it is a file, create a list item with a link to the file
-            echo "<li><a href='$folder/$file'> $file </a><button type=button' class='btnEdit' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</button><button type=button' class='btnEdit' data-bs-toggle='modal' data-bs-target='#exampleModal'>Delete</button></li>";
+            echo "<li class='file' name = 'file-name'><a class='input-name' href='$folder/$file'> $file </a><button id='editBtn'>Edit</button><button id='btnDelete' class='btnDelete'>Delete</button></li>";
         }
     }
     echo "</ul>";

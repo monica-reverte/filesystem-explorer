@@ -13,7 +13,7 @@
 		//Check if it should be a folder or file
 		if(strpos($fileName, '.') > 1) {
 			if(touch($dir)) {
-				echo "<li><a href='root/" . $file . "'>" . $fileName . "</a><button type=button' class='btnEdit' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</button><button type=button' class='btnDelete' data-bs-toggle='modal' data-bs-target='#exampleModal'>Delete</button></li>";
+				echo "<li><a href='root/" . $file . "'>" . $fileName . "</a>a class='input-name' href='$folder/$file'> $file </a><button id='editBtn'>Edit</button><button id='btnDelete' class='btnDelete'>Delete</button></li>";
 				header('Location: index.php');
 				
 			}

@@ -1,15 +1,8 @@
 <?php
 
-$newName = $_GET["fileName"];
-$oldName = $_GET["oldFileName"];
-$parentPath = dirname($_GET["oldPath"]);
-$basePath = $_SESSION["basePath"];
-$pathToEdit =  $basePath . "/" . $parentPath . "/";
-
-// Rename file
-rename($pathToEdit . $oldName, $pathToEdit . $newName);
-
-
+$fileName = $_POST['file-name'];
+$path = "root/";
+$dir = $path . '/' . $fileName;
 
 
 ?> 
