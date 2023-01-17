@@ -279,6 +279,48 @@ Your browser does not support the video tag.
     </div>
      
     <div class="content-section">
+
+    <div class="editModal modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit</h5>
+                        
+                    </div>
+                    <div class="modal-body">
+                        <form action="edit.php" method="GET" id="editItems" enctype="multipart/form-data">
+                            <label for="newName" >New name</label>
+                            <input type="text" id="fileName" name="newName">
+                            <input type="hidden" name="actualPathFile" id="actualPathFile">
+                            <button class="cancel" type="button">Cancel</button>
+                            <button type="submit">Accept</button>
+                        </form>
+                    </div>           
+                </div>
+            </div>
+
+
+
+
+
+
+        <button id="newBtn">New</button>
+        <div id="newModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New</h5>
+                        
+                        
+                </div>
+                <div class="modal-body">
+                    <form action="create.php" method="POST" id="createItems" enctype="multipart/form-data">
+                        <label for="formGroupExampleInput" class="form-label">Enter folder/file name</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" name="file-name">
+                        <button type="cancel">Cancel</button>
+                        <button type="submit">Accept</button>
+                    </form>
+                </div>           
+            </div>
+        </div>
      <div class="content-section-title">Installed</div>
      <ul>
       <li class="adobe-product">
@@ -456,7 +498,6 @@ function generateMenu($folder) {
             echo "<div class='content-wrapper-header'>";
             // If it is a file, create a list item with a link to the file
             echo "<div class='fileContent'><a href='$file_path' target='_blank'>$file</a><button class='delete-button' value='$file'>Eliminar</button>";
-
             // Get the file path
             $file_path = "$folder/$file";
             // Get the file size in MB
@@ -470,6 +511,7 @@ $file_last_modified_formatted = date('Y-m-d H:i:s', $file_last_modified);
 // Print the file size and last modified time
 echo "<br>Tamaño del archivo: " . $file_size_mb . " MB";
 echo "<br>Última vez modificado: " . $file_last_modified_formatted;
+echo "<div class='file' name ='file-name'><a class='input-name' href='$folder/$file'> $file </a><button actualPath='$folder/$file' class='editBtn'>Edit</button></div>";
 echo "</div>";
 echo "</div>";
 }
