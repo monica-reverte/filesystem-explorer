@@ -314,7 +314,7 @@ body.light-mode .video-bg:before {
   display: none;
 }
 .wide .search-bar {
-  max-width: 600px;
+  max-width: 300px;
   margin: auto;
   transition: 0.4s;
   box-shadow: 0 0 0 1px var(--border-color);
@@ -430,6 +430,7 @@ body.light-mode .video-bg:before {
   height: 100%;
   overflow: auto;
   background-color: var(--theme-bg-color);
+
 }
 @media screen and (max-width: 510px) {
   .content-wrapper {
@@ -443,7 +444,9 @@ body.light-mode .video-bg:before {
   justify-content: center;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png"), linear-gradient(to right top, #cf4af3, #e73bd7, #f631bc, #fd31a2, #ff3a8b, #ff4b78, #ff5e68, #ff705c, #ff8c51, #ffaa49, #ffc848, #ffe652);
   border-radius: 14px;
-  padding: 20px 40px;
+  padding: 20px 100px;
+  margin-bottom: 30px;
+  animation: myAnim 0.5s ease 0s 1 normal forwards;
 }
 @media screen and (max-width: 415px) {
   .content-wrapper-header {
@@ -877,6 +880,138 @@ body.light-mode .video-bg:before {
   width: 6px;
   border-radius: 10px;
 }
+.delete-button {
+  margin-left: 90%;
+  background-color: #3a6df0;
+  border: none;
+  padding: 8px 26px;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.folder-button {
+  position: fixed;
+  z-index: 99;
+  background-color: #3a6df0;
+  border: none;
+  padding: 8px 26px;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-left: 10rem;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.folder-button1 {
+  position: fixed;
+  z-index: 99;
+  background-color: #3a6df0;
+  border: none;
+  padding: 8px 26px;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.search-button {
+  position: fixed;
+  z-index: 99;
+  background-color: #3a6df0;
+  border: none;
+  padding: 8px 26px;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 0px;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+
+.select-hidden {
+  display: none;
+  visibility: hidden;
+  padding-right: 10px;
+}
+
+.select{
+  color: white;
+  margin-left: 40rem;
+}
+
+.subHeader{
+  height: 15rem;
+}
+
+.select-styled {
+  margin-top: 1rem;
+  margin-right: 5rem;
+  text-decoration: none;
+  color: var(--theme-color);
+  background-color: #14162b;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Agregar esta línea */
+  text-align: center; /* Agregar esta línea */
+  font-weight: 400;
+  padding: 0rem;
+  padding-right: 6rem;
+  padding-left: 6rem;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+
+.select-styled:hover {
+  background-color: #3a6df0;
+}
+
+li{
+  margin-right: 7rem;
+  padding: 0.5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  background-color: #14162b;
+  list-style: none;
+  animation: myAnim 0.5s ease 0s 1 normal forwards;
+}
+li:hover{
+  background-color: #3a6df0;
+} 
+
+.folder:hover{
+  background-color: #21242d;
+}
+
+.folder{
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+
+
 
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-bg);

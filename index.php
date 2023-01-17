@@ -57,14 +57,6 @@
             <button>Upload</button>
         </div> -->
        
-        
-    
-        <div class="mainFolder" >
-            <h2>Open Folder</h2>
-            <button class="buttonFolder">Edit</button>
-            <button class="buttonFolder">Delete</button>
-
-        </div>
 
 
 
@@ -89,19 +81,23 @@ Your browser does not support the video tag.
    <a class="menu-link notify" href="#">Market</a>
   </div>
   <div class="search-bar">
-   <input type="text" placeholder="Search">
+  <form id="search-form" action="search.php" method="post">
+    <input type="text" id="search-input" name="search_term">
+    <button type="submit" class="search-button">Buscar</button>
+</form>
+
   </div>
   <div class="header-profile">
-   <div class="notification">
+   <!-- <div class="notification">
     <span class="notification-number">3</span>
     <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
      <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
     </svg>
-   </div>
-   <svg viewBox="0 0 512 512" fill="currentColor">
+   </div> -->
+   <!-- <svg viewBox="0 0 512 512" fill="currentColor">
     <path d="M448.773 235.551A135.893 135.893 0 00451 211c0-74.443-60.557-135-135-135-47.52 0-91.567 25.313-115.766 65.537-32.666-10.59-66.182-6.049-93.794 12.979-27.612 19.013-44.092 49.116-45.425 82.031C24.716 253.788 0 290.497 0 331c0 7.031 1.703 13.887 3.006 20.537l.015.015C12.719 400.492 56.034 436 106 436h300c57.891 0 106-47.109 106-105 0-40.942-25.053-77.798-63.227-95.449z" />
    </svg>
-   <img class="profile-img" src="https://images.unsplash.com/photo-1600353068440-6361ef3a86e8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="">
+   <img class="profile-img" src="https://images.unsplash.com/photo-1600353068440-6361ef3a86e8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt=""> -->
   </div>
  </div>
  <div class="wrapper">
@@ -131,7 +127,6 @@ Your browser does not support the video tag.
    <div class="side-wrapper">
     <div class="side-title">Folders</div>
     <div class="side-menu">
-    <?php generateMenu("root"); ?>
     </div>
    </div>
     <div class="side-wrapper">
@@ -236,36 +231,53 @@ Your browser does not support the video tag.
      <a class="main-header-link is-active" href="#">Desktop</a>
      <a class="main-header-link" href="#">Mobile</a>
      <a class="main-header-link" href="#">Web</a>
+     <div id="search-result" class="searchResult main-header-link"></div>
     </div>
    </div>
 
 
-   <div class="subHeader">  
-                <form action="back.php" method="post" enctype="multipart/form-data">
-        <label for="folder_select"> <a> Select Folder: </a> </label>
-        <select name="folder_select" id="folder_select" hidden>
-            <option value="folder1"><a>Folder 1</a></option>
-            <option value="folder2">Folder 2</option>
-            <option value="folder3">Folder 3</option>
+<div class="subHeader">  
+    <form action="back.php" method="post" enctype="multipart/form-data">
+        <!-- <label for="folder_select"> <a> Select Folder: </a> </label> -->
+        <select id="mounth" name="folder_select" id="folder_select">
+            <option name="folder1" value="folder1">Folder 1</option>
+            <option name="folder2" value="folder2">Folder 2</option>
+            <option name="folder3" value="folder3">Folder 3</option>
         </select>
-
-        <label for="folder_select"  class="folder">folder 1</label>
-        <input type="file" name="fileToUpload" id="fileToUpload" hidden/>
-        <label for="fileToUpload"  class="content-button">Choose File</label>
-        <input class="content-button" type="submit" value="Upload File" name="submit">
-        </form>
-        </div>
+    <input type="file" name="fileToUpload" id="fileToUpload" hidden/>
+    <input type="submit" name="submit" hidden/>
+    </form>
+<label for="fileToUpload" class="folder-button1">Choose File</label>
+<label for="submit" class="folder-button">Upload</label>
+</div>
 
 
    <div class="content-wrapper">
    
     <div class="content-wrapper-header">
      <div class="content-wrapper-context">
-        <?php generateMenu("root"); ?>
-
      </div>
+     <!-- <form method="post" action="back.php">
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <br>
+    <label>Selecciona la carpeta en la que deseas subir el archivo:</label>
+    <select name="folder_select" id="folder_select">
+        <option value="folder1">folder1</option>
+        <option value="folder2">folder2</option>
+        <option value="folder3">folder3</option>
+    </select>
+    <br>
+    <input type="submit" value="Subir archivo" name="submit">
+    <br>
+    <h3>Eliminar archivos</h3>
 
+    <input type="submit" value="Eliminar archivos" name="delete">
+</form> -->
+
+
+<?php generateMenu('root'); ?>
     </div>
+     
     <div class="content-section">
      <div class="content-section-title">Installed</div>
      <ul>
@@ -418,13 +430,14 @@ Your browser does not support the video tag.
 </html>
 
 <?php
+
 function generateMenu($folder) {
     // Use scandir to get the files and folders inside the folder
     $files = array_diff(scandir($folder), array('.','..'));
-
-    
+    echo "<form action='delete.php' method='post' onsubmit='return confirm('¿Estas seguro de eliminar los archivos seleccionados?');'>";
     // Create a list element
      echo "<ul id='menu'>";
+     
     
     // Loop through the files and folders
     foreach ($files as $file) {
@@ -432,36 +445,67 @@ function generateMenu($folder) {
         // Check if the file is a folder
         if (is_dir("$folder/$file")) {
             // If it is a folder, create a list item with the folder name
-            echo "<div class='folder'> <a> <svg viewBox='0 0 512 512' fill='currentColor'>
+            echo "<div class='folder' id='files'> <a> <svg viewBox='0 0 512 512' fill='currentColor'>
            </svg>  $file </a>";
             // Call the function recursively to generate the submenu for the folder
             generateMenu("$folder/$file");
             echo "</div>";
             
         }  else {
+            
             echo "<div class='content-wrapper-header'>";
             // If it is a file, create a list item with a link to the file
-            echo "<div class='fileContent' ><a href='$folder/$file'> $file  </a>";
+            echo "<div class='fileContent'><a href='$file_path' target='_blank'>$file</a><button class='delete-button' value='$file'>Eliminar</button>";
+
             // Get the file path
             $file_path = "$folder/$file";
-
             // Get the file size in MB
             $file_size = filesize($file_path);
             $file_size_mb = round($file_size / 1024 / 1024, 2);
+            
+// Get the last modified time of the file
+$file_last_modified = filemtime($file_path);
+$file_last_modified_formatted = date('Y-m-d H:i:s', $file_last_modified);
 
-            // Get the last modified time of the file
-            $file_last_modified = filemtime($file_path);
-            $file_last_modified_formatted = date('Y-m-d H:i:s', $file_last_modified);
-
-            // Print the file size and last modified time
-            echo "<br>Tamaño del archivo: " . $file_size_mb . " MB";
-            echo "<br>Última vez modificado: " . $file_last_modified_formatted;
-            echo "</div>";
-            echo "</div>";
-        }
-
-    }
-    echo "</ul>";
+// Print the file size and last modified time
+echo "<br>Tamaño del archivo: " . $file_size_mb . " MB";
+echo "<br>Última vez modificado: " . $file_last_modified_formatted;
+echo "</div>";
+echo "</div>";
 }
-?>
 
+}
+echo "<input type='hidden' name='folder' value='$folder'>";
+echo "</form>";
+echo "</ul>";
+}
+
+?>   
+
+
+<script>
+document.querySelectorAll('.delete-button').forEach(function(button) {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        var file = event.target.value;
+        var folder = "<?php echo $folder ?>";
+        var data = { file: file, folder: folder };
+        fetch('delete.php', {
+            method: 'DELETE',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(function(response) {
+            return response.text();
+        }).then(function(data) {
+console.log(data);
+// Aquí puedes actualizar la página o mostrar un mensaje de éxito/error al usuario
+})
+.catch(function(error) {
+console.error(error);
+});
+});
+});
+</script>

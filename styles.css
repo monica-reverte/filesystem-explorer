@@ -54,9 +54,15 @@
     flex-wrap: wrap;
 }
 
-
-
-
-
-
-
+.delete-button{
+    margin-left: 50px;
+    background-color: #3a6df0;
+    border: none;
+    padding: 8px 26px;
+    color: #fff;
+    border-radius: 20px;
+    margin-top: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+}
