@@ -473,6 +473,62 @@ Your browser does not support the video tag.
 
 <?php
 
+$extensionIcon = "";
+
+$dirEx = explode(".", $dir);
+
+$extension = end($dirEx);
+
+switch($extension){
+    case "csv":
+        $extensionIcon = "icons/csv.png";
+        break;
+
+    case "doc":
+        $extensionIcon = "icons/doc.png";
+        break;
+
+    case "exe":
+        $extensionIcon = "icons/exe.png";
+        break;
+
+    case "jpg":
+        $extensionIcon = "icons/jpg.png";
+        break;
+
+    case "mp3":
+        $extensionIcon = "icons/mp3.png";
+        break;
+
+    case "mp4":
+        $extensionIcon = "icons/mp4.png";
+        break;
+
+    case "odt":
+        $extensionIcon = "icons/odt.png";
+        break;
+
+    case "pdf":
+        $extensionIcon = "icons/pdf.png";
+        break;
+
+    case "png":
+        $extensionIcon = "icons/png.png";
+        break;
+
+    case "rar":
+        $extensionIcon = "icons/rar.png";
+        break;
+
+    case "txt":
+        $extensionIcon = "icons/txt.png";
+        break;
+
+    case "zip":
+        $extensionIcon = "icons/zip.png";
+        break;
+}
+
 function generateMenu($folder) {
     // Use scandir to get the files and folders inside the folder
     $files = array_diff(scandir($folder), array('.','..'));
@@ -483,7 +539,7 @@ function generateMenu($folder) {
     
     // Loop through the files and folders
     foreach ($files as $file) {
-       
+        $file_path = "$folder/$file";
         // Check if the file is a folder
         if (is_dir("$folder/$file")) {
             // If it is a folder, create a list item with the folder name
@@ -497,7 +553,7 @@ function generateMenu($folder) {
             
             echo "<div class='content-wrapper-header'>";
             // If it is a file, create a list item with a link to the file
-            echo "<div class='fileContent'><a href='$file_path' target='_blank'>$file</a><button class='delete-button' value='$file'>Eliminar</button>";
+            echo "<div class='fileContent'><a href='$file_path' target='_blank'><img src=' ".$extensionIcon." '>$file</a><button class='delete-button' value='$file'>Eliminar</button>";
             // Get the file path
             $file_path = "$folder/$file";
             // Get the file size in MB
@@ -521,6 +577,7 @@ echo "<input type='hidden' name='folder' value='$folder'>";
 echo "</form>";
 echo "</ul>";
 }
+
 
 ?>   
 
