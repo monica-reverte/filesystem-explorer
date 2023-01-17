@@ -29,7 +29,7 @@ newBtn.onclick = function() {
 
 
 
-//Edit
+//Edit Modal
 
 // Get the modal
 const editModal = document.querySelector(".editModal");
@@ -37,15 +37,23 @@ const editModal = document.querySelector(".editModal");
 // Get the button that opens the modal
 const editBtn = document.querySelectorAll(".editBtn");
 
+const cancelBtn = document.querySelectorAll(".cancel");
+cancelBtn.forEach(item => {
+    item.addEventListener("click", cancel);
+    
+})
+
+function cancel(e) {
+    editModal.style.display = "none"; 
+
+
+}
 
 // When the user clicks the button, open the modal 
 editBtn.forEach(item => {
     item.addEventListener("click", changeName);
     
 })
-
-
-
 
 // Edit
 
@@ -57,7 +65,6 @@ function changeName (event) {
     actualPathFile.value=inputHref;
 
 }
-
 
 
 

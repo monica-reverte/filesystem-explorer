@@ -37,6 +37,7 @@
             <input type="submit" value="Upload File" name="submit">
         </form>
 
+        <!-- Modal Create -->
 
         <button id="newBtn">New</button>
         <div id="newModal" class="modal">
@@ -96,7 +97,7 @@
                 
             <h2>Open Folder</h2>
 
-
+            <!-- Modal Edit -->
             
             <div class="editModal modal">
                 <div class="modal-content">
@@ -109,11 +110,14 @@
                             <label for="newName" >New name</label>
                             <input type="text" id="fileName" name="newName">
                             <input type="hidden" name="actualPathFile" id="actualPathFile">
-                            <button type="cancel">Cancel</button>
+                            <button class="cancel" type="button">Cancel</button>
                             <button type="submit">Accept</button>
+                        </form>
                     </div>           
                 </div>
             </div>
+
+
 
 </main>
 </body>
@@ -140,7 +144,7 @@ function generateMenu($folder) {
             echo "</li>";
         } else {
             // If it is a file, create a list item with a link to the file
-            echo "<li class='file' name = 'file-name'><a class='input-name' href='$folder/$file'> $file </a><button actualPath='$folder/$file' class='editBtn'>Edit</button><button actualPath='$folder/$file id='btnDelete' class='btnDelete'>Delete</button></li>";
+            echo "<li class='file' name = 'file-name'><a class='input-name' href='$folder/$file'> $file </a><button actualPath='$folder/$file' class='editBtn'>Edit</button><button class='btnDelete'>Delete</button></li>";
         }
     }
     echo "</ul>";
