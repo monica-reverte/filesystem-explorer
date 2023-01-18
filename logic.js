@@ -68,5 +68,35 @@ function changeName (event) {
 
 
 
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
+const searchResult = document.getElementById('search-result');
+
+searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const searchTerm = searchInput.value;
+
+    fetch('search.php', {
+        method: 'POST',
+        body: JSON.stringify({ search_term: searchTerm }),
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            let html = '';
+            data.data.forEach(result => {
+                html += `<div>${result}</div>`;
+            });
+            searchResult.innerHTML= html;
+        } else {
+        searchResult.innerHTML = 'No se han encontrado resultados para su búsqueda.';
+        }
+        })
+        .catch(error => console.log(error));
+        });
+
+
+
 
 

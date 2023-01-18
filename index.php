@@ -15,11 +15,17 @@
 <body>
         <header class="header">         
         <nav class="navBar" >
-    <!-- <form action="procesar.php" method="post">
-        <input name="nombre" type="text" placeholder="Buscador">
-        <input type="submit" value="Buscar">
-    </form> -->
-            </nav>  
+
+            <div class="search-bar">
+            <form id="search-form" action="search.php" method="post">
+                <input type="text" id="search-input" name="search_term">
+                <button type="submit" class="search-button">Buscar</button>
+            </form>
+
+            </div>
+        <div id="search-result" class="searchResult main-header-link"></div>
+
+        </nav>  
 
         </header> 
 
@@ -124,6 +130,7 @@
 function generateMenu($folder) {
     // Use scandir to get the files and folders inside the folder
     $files = array_diff(scandir($folder), array('.','..'));
+    //  echo "<form action='delete.php' method='post' onsubmit='return confirm('¿Estas seguro de eliminar los archivos seleccionados?');'>";
 
     
     // Create a list element
@@ -140,10 +147,53 @@ function generateMenu($folder) {
             echo "</li>";
         } else {
             // If it is a file, create a list item with a link to the file
-            echo "<li class='file' name = 'file-name'><a class='input-name' href='$folder/$file'> $file </a><button actualPath='$folder/$file' class='editBtn'>Edit</button><button class='btnDelete'>Delete</button></li>";
+            echo "<div class='fileContent'><a href='$folder/$file' target='_blank'></a><button class='delete-button' value='$file'>Eliminar</button>";
+            echo "<div class='file' name ='file-name'><a class='input-name' href='$folder/$file'> $file </a><button actualPath='$folder/$file' class='editBtn'>Edit</button></div>";
+            $file_path = "$folder/$file";
+                        // Get the file size in MB
+                        $file_size = filesize($file_path);
+                        $file_size_mb = round($file_size / 1024 / 1024, 2);
+                        
+            // Get the last modified time of the file
+            $file_last_modified = filemtime($file_path);
+            $file_last_modified_formatted = date('Y-m-d H:i:s', $file_last_modified);
+            
+            // Print the file size and last modified time
+            echo "<br>Tamaño del archivo: " . $file_size_mb . " MB";
+            echo "<br>Última vez modificado: " . $file_last_modified_formatted;
         }
     }
     echo "</ul>";
+    echo "<form action='delete.php' method='post' onsubmit='return confirm('¿Estas seguro de eliminar los archivos seleccionados?');'>";
+
 }
 
 ?>
+
+
+<script>
+document.querySelectorAll('.delete-button').forEach(function(button) {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        var file = event.target.value;
+        var folder = "<?php echo $folder ?>";
+        var data = { file: file, folder: folder };
+        fetch('delete.php', {
+            method: 'DELETE',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(function(response) {
+            return response.text();
+        }).then(function(data) {
+console.log(data);
+// Aquí puedes actualizar la página o mostrar un mensaje de éxito/error al usuario
+})
+.catch(function(error) {
+console.error(error);
+});
+});
+});
+</script>
