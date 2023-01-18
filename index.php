@@ -93,10 +93,6 @@
     
         <div class="mainFolder">
         
-        
-                
-            <h2>Open Folder</h2>
-
             <!-- Modal Edit -->
             
             <div class="editModal modal">

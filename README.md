@@ -21,18 +21,17 @@
 
 ## Requirements
 
-- You cannot use file third-party libraries
-- You will not be able to use global variables in PHP.
+- You will not be able to use the $GLOBALS variable.
 - You must use GIT
 - You must use the PHP > v8
-- Create a clear and orderly directory structure
+- Create a clear and ordered directory structure
 - Both the code and the comments must be written in English
 - Use the camelCase code style to define variables and functions
-- In the case of using HTML, never use inline styles
-- In the case of using different programming languages ​​always define the implementation in separate terms
-- Remember that it is important to divide the tasks into several sub-tasks so that in this way you can associate each particular step of the construction with a specific commit
+- When using HTML, never use inline styles
+- Remember that it is important to divide the tasks into several sub-tasks so that you can associate each particular step of the construction with a specific commit
 - You should try as much as possible that the commits and the planned tasks are the same
-Delete files that are not used or are not necessary to evaluate the project
+- Delete files and comments that are not used or are not necessary
+
 
 ## Repository
 
