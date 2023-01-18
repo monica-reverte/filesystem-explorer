@@ -177,16 +177,17 @@ $(function () {
 
 // New Modal
 // Get the modal
-const newmodal = document.getElementById("newModal");
+// const newmodal = document.getElementById("newModal");
 
 // Get the button that opens the modal
-const newBtn = document.getElementById("newBtn");
+// const newBtn = document.getElementById("newBtn");
 
 
 // When the user clicks the button, open the modal 
-newBtn.onclick = function() {
-    newmodal.style.display = "block";
-}
+
+// newBtn.onclick = function() {
+//     newmodal.style.display = "block";
+// }
 
 
 
@@ -219,7 +220,6 @@ editBtn.forEach(item => {
 // Edit
 
 function changeName (event) {
-    editModal.style.display = "block";
     const actualPathFile = document.getElementById("actualPathFile");
     const inputHref = event.currentTarget.getAttribute("actualPath");
     console.log(inputHref);

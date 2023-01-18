@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>content-wra
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -245,10 +245,38 @@ Your browser does not support the video tag.
             <option name="folder3" value="folder3">Folder 3</option>
         </select>
     <input type="file" name="fileToUpload" id="fileToUpload" hidden/>
-    <input type="submit" name="submit" hidden/>
+    <input type="submit" class="folder-button" name="submit">
     </form>
 <label for="fileToUpload" class="folder-button1">Choose File</label>
-<label for="submit" class="folder-button">Upload</label>
+
+
+<div class="button-wrapper">
+        <button id="newBtn" class="newButton content-button status-button folder-button3">New</button>
+        <div class="pop-up">
+         <div class="pop-up__title">New name:
+          
+
+
+
+         </div>
+
+         <form action="create.php" method="POST" id="createItems" enctype="multipart/form-data">
+                        <label for="formGroupExampleInput" class="form-label">Enter folder/file name</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" name="file-name">
+                        <div class="content-button-wrapper">
+                        <button type="cancel" class="content-button status-button open close">Cancel</button>
+                        <button type="submit" class="content-button status-button">Accept</button>
+                        </div>
+
+                        </form>
+
+          <label for="check1">Import previous settings and preferences</label>
+         </div>
+         <div class="checkbox-wrapper">
+          
+          <label for="check2"></label>
+         </div>
+        </div>
 </div>
 
 
@@ -280,7 +308,7 @@ Your browser does not support the video tag.
      
     <div class="content-section">
 
-    <div class="editModal modal">
+   <div class="editModal modal">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Edit</h5>
@@ -300,10 +328,10 @@ Your browser does not support the video tag.
 
 
 
+ 
 
 
 
-        <button id="newBtn">New</button>
         <div id="newModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -311,16 +339,49 @@ Your browser does not support the video tag.
                         
                         
                 </div>
-                <div class="modal-body">
+        
+            </div>
+        </div>
+        
+
+        <div class="pop-up">
+         <div class="pop-up__title">New name:
+
+
+         </div>
+         <div class="pop-up__subtitle">Adjust your selections for advanced options as desired before continuing. <a href="#">Learn more</a></div>
+         <div class="checkbox-wrapper">
+
                     <form action="create.php" method="POST" id="createItems" enctype="multipart/form-data">
                         <label for="formGroupExampleInput" class="form-label">Enter folder/file name</label>
                         <input type="text" class="form-control" id="formGroupExampleInput" name="file-name">
                         <button type="cancel">Cancel</button>
                         <button type="submit">Accept</button>
-                    </form>
-                </div>           
-            </div>
+                  
+      <!-- 
+   
+
+         </div>
+         <div class="checkbox-wrapper">
+          <input type="checkbox" id="check2" class="checkbox">
+          <label for="check2">Remove old versions</label>
+         </div>
+         <div class="content-button-wrapper">
+         <button  class="content-button status-button open close" type="cancel">Cancel</button>
+        <button  class="content-button status-button"  type="submit">Accept</button>
+         </div>
         </div>
+
+  </form> -->
+
+
+
+
+
+
+
+
+
      <div class="content-section-title">Installed</div>
      <ul>
       <li class="adobe-product">
@@ -363,29 +424,27 @@ Your browser does not support the video tag.
        <span class="status">
         <span class="status-circle"></span>
         Update Available</span>
-       <div class="button-wrapper">
-        <button class="content-button status-button">Update this app</button>
-        <div class="pop-up">
-         <div class="pop-up__title">Update This App
-          <svg class="close" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
-           <circle cx="12" cy="12" r="10" />
-           <path d="M15 9l-6 6M9 9l6 6" />
-          </svg>
-         </div>
-         <div class="pop-up__subtitle">Adjust your selections for advanced options as desired before continuing. <a href="#">Learn more</a></div>
-         <div class="checkbox-wrapper">
-          <input type="checkbox" id="check1" class="checkbox">
-          <label for="check1">Import previous settings and preferences</label>
-         </div>
-         <div class="checkbox-wrapper">
-          <input type="checkbox" id="check2" class="checkbox">
-          <label for="check2">Remove old versions</label>
-         </div>
-         <div class="content-button-wrapper">
-          <button class="content-button status-button open close">Cancel</button>
-          <button class="content-button status-button">Continue</button>
-         </div>
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="menu">
          <button class="dropdown">
           <ul>
@@ -398,15 +457,7 @@ Your browser does not support the video tag.
        </div>
       </li>
       <li class="adobe-product">
-       <div class="products">
-        <svg viewBox="0 0 52 52" style="border: 1px solid #C75DEB">
-         <g xmlns="http://www.w3.org/2000/svg">
-          <path d="M40.824 52H11.176C5.003 52 0 46.997 0 40.824V11.176C0 5.003 5.003 0 11.176 0h29.649C46.997 0 52 5.003 52 11.176v29.649C52 46.997 46.997 52 40.824 52z" fill="#3a3375" data-original="#3a3375" />
-          <path d="M27.44 39H24.2l-2.76-9.04h-8.32L10.48 39H7.36l8.24-28h3.32l8.52 28zm-6.72-12l-3.48-11.36L13.88 27h6.84zM31.48 33.48c0 2.267 1.333 3.399 4 3.399 1.653 0 3.466-.546 5.44-1.64L42 37.6c-2.054 1.254-4.2 1.881-6.44 1.881-4.64 0-6.96-1.946-6.96-5.841v-8.2c0-2.16.673-3.841 2.02-5.04 1.346-1.2 3.126-1.801 5.34-1.801s3.94.594 5.18 1.78c1.24 1.187 1.86 2.834 1.86 4.94V30.8l-11.52.6v2.08zm8.6-5.24v-3.08c0-1.413-.44-2.42-1.32-3.021-.88-.6-1.907-.899-3.08-.899-1.174 0-2.167.359-2.98 1.08-.814.72-1.22 1.773-1.22 3.16v3.199l8.6-.439z" fill="#e4d1eb" data-original="#e7adfb" />
-         </g>
-        </svg>
-        After Effects
-       </div>
+
        <span class="status">
         <span class="status-circle green"></span>
         Updated</span>
@@ -473,6 +524,56 @@ Your browser does not support the video tag.
 
 <?php
 
+
+function generateMenu($folder) {
+
+    // Use scandir to get the files and folders inside the folder
+    $files = array_diff(scandir($folder), array('.','..'));
+    // echo "<form action='delete.php' method='post' onsubmit='return confirm('¿Estas seguro de eliminar los archivos seleccionados?');'>";
+    // Create a list element
+     echo "<ul id='menu'>";
+     
+    
+    // Loop through the files and folders
+    foreach ($files as $file) {
+        $file_path = "$folder/$file";
+        // Check if the file is a folder
+        if (is_dir("$folder/$file")) {
+            // If it is a folder, create a list item with the folder name
+            echo "<div class='folder' id='files'> <a> <svg viewBox='0 0 512 512' fill='currentColor'>
+           </svg>  $file </a>";
+            // Call the function recursively to generate the submenu for the folder
+            generateMenu("$folder/$file");
+            echo "</div>";
+            
+        }  else {
+            
+            echo "<div class='content-wrapper-header'>";
+            // If it is a file, create a list item with a link to the file
+            echo "<div class='fileContent'><a href='$file_path' target='_blank'>$file</a><button class='delete-button' value='$file'>Eliminar</button>";
+            echo "<div class='file' name ='file-name'><a class='input-name' href='$folder/$file'> $file </a><button actualPath='$folder/$file' class='editBtn'>Edit</button></div>";
+            // Get the file path
+            $file_path = "$folder/$file";
+            // Get the file size in MB
+            $file_size = filesize($file_path);
+            $file_size_mb = round($file_size / 1024 / 1024, 2);
+            
+// Get the last modified time of the file
+$file_last_modified = filemtime($file_path);
+$file_last_modified_formatted = date('Y-m-d H:i:s', $file_last_modified);
+
+// Print the file size and last modified time
+echo "<br>Tamaño del archivo: " . $file_size_mb . " MB";
+echo "<br>Última vez modificado: " . $file_last_modified_formatted;
+echo "</div>";
+echo "</div>";
+}
+
+}
+echo "<input type='hidden' name='folder' value='$folder'>";
+echo "</form>";
+echo "</ul>";
+}
 $extensionIcon = "";
 
 $dirEx = explode(".", $dir);
@@ -529,58 +630,8 @@ switch($extension){
         break;
 }
 
-function generateMenu($folder) {
-    // Use scandir to get the files and folders inside the folder
-    $files = array_diff(scandir($folder), array('.','..'));
-    echo "<form action='delete.php' method='post' onsubmit='return confirm('¿Estas seguro de eliminar los archivos seleccionados?');'>";
-    // Create a list element
-     echo "<ul id='menu'>";
-     
-    
-    // Loop through the files and folders
-    foreach ($files as $file) {
-        $file_path = "$folder/$file";
-        // Check if the file is a folder
-        if (is_dir("$folder/$file")) {
-            // If it is a folder, create a list item with the folder name
-            echo "<div class='folder' id='files'> <a> <svg viewBox='0 0 512 512' fill='currentColor'>
-           </svg>  $file </a>";
-            // Call the function recursively to generate the submenu for the folder
-            generateMenu("$folder/$file");
-            echo "</div>";
-            
-        }  else {
-            
-            echo "<div class='content-wrapper-header'>";
-            // If it is a file, create a list item with a link to the file
-            echo "<div class='fileContent'><a href='$file_path' target='_blank'><img src=' ".$extensionIcon." '>$file</a><button class='delete-button' value='$file'>Eliminar</button>";
-            // Get the file path
-            $file_path = "$folder/$file";
-            // Get the file size in MB
-            $file_size = filesize($file_path);
-            $file_size_mb = round($file_size / 1024 / 1024, 2);
-            
-// Get the last modified time of the file
-$file_last_modified = filemtime($file_path);
-$file_last_modified_formatted = date('Y-m-d H:i:s', $file_last_modified);
-
-// Print the file size and last modified time
-echo "<br>Tamaño del archivo: " . $file_size_mb . " MB";
-echo "<br>Última vez modificado: " . $file_last_modified_formatted;
-echo "<div class='file' name ='file-name'><a class='input-name' href='$folder/$file'> $file </a><button actualPath='$folder/$file' class='editBtn'>Edit</button></div>";
-echo "</div>";
-echo "</div>";
-}
-
-}
-echo "<input type='hidden' name='folder' value='$folder'>";
-echo "</form>";
-echo "</ul>";
-}
-
 
 ?>   
-
 
 <script>
 document.querySelectorAll('.delete-button').forEach(function(button) {

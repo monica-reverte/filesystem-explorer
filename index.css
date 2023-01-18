@@ -895,13 +895,13 @@ body.light-mode .video-bg:before {
 
 .folder-button {
   position: fixed;
-  z-index: 99;
+  z-index: 150;
   background-color: #3a6df0;
   border: none;
   padding: 8px 26px;
   color: #fff;
   border-radius: 20px;
-  margin-top: 20px;
+  margin-top: -150px;
   margin-left: 10rem;
   cursor: pointer;
   transition: 0.3s;
@@ -922,6 +922,7 @@ body.light-mode .video-bg:before {
   white-space: nowrap;
 }
 
+
 .search-button {
   position: fixed;
   z-index: 99;
@@ -936,6 +937,38 @@ body.light-mode .video-bg:before {
   white-space: nowrap;
 }
 
+.newButton{
+  position: fixed;
+  z-index: 99;
+  background-color: #3a6df0;
+  border: none;
+  padding: 8px 26px;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+  left: 650px;
+  top: 117px;
+}
+
+.editBtn{
+  position: fixed;
+  left: 350px;
+  z-index: 99;
+  background-color: #3a6df0;
+  border: none;
+  padding: 8px 26px;
+  color: #fff;
+  border-radius: 20px;
+  margin-top: 0px;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+
+
+}
 
 .select-hidden {
   display: none;
@@ -953,6 +986,7 @@ body.light-mode .video-bg:before {
 }
 
 .select-styled {
+  position: static;
   margin-top: 1rem;
   margin-right: 5rem;
   text-decoration: none;
@@ -960,10 +994,9 @@ body.light-mode .video-bg:before {
   background-color: #14162b;
   display: flex;
   align-items: center;
-  justify-content: center; /* Agregar esta línea */
-  text-align: center; /* Agregar esta línea */
-  font-weight: 400;
-  padding: 0rem;
+  justify-content: center; 
+  text-align: center; 
+  padding: 1rem;
   padding-right: 6rem;
   padding-left: 6rem;
   font-size: 14px;
@@ -1009,6 +1042,8 @@ li:hover{
   padding-right: 2rem;
   padding-left: 2rem;
 }
+
+
 
 
 
