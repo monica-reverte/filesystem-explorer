@@ -19,7 +19,7 @@
 		//Check if it should be a folder or file
 		if(strpos($fileName, '.') > 1) {
 			if(touch($dir)) {
-				echo "<li><a href='root/" . $file . "'>" . $fileName . "</a><button actualPath='$folder/$file' class='editBtn'>Edit</button><button class='btnDelete'>Delete</button></li>";
+				echo "<li><a href='root/" . $file . "'>" . $fileName . "</a><button actualPath='$folder/$file' class='editBtn'>Edit</button>button deletePath='$folder/$file'class='delete-button'>Delete</button></li>";
 				header('Location: index.php');
 				
 			}

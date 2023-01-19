@@ -1,12 +1,12 @@
-body{
+/* body{
     display: row;
     flex-direction: column;
     flex-wrap: wrap;
 
-}
+} */
 
 
-.navBar{
+/* .navBar{
     width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
@@ -14,14 +14,14 @@ body{
     border:1px solid black ;
     text-align: center;
 
-}
+} */
 
-header{
+/* header{
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
+} */
 
 
 main{
@@ -39,13 +39,21 @@ main{
 
 }
 
+/* .btn-group{
+    flex-direction: column;
+} */
+
 .aside{
     display: flex;
     flex-direction: column;
     border: 1px solid black;
-    width: 20%;
     height: 50rem;
     margin-top: 5%;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+
 }
 
 .asideContent{
@@ -66,6 +74,7 @@ main{
 .folder ul {
     display: none;
     list-style-type: none;
+    font-size: 18px;
 }
 
 .folder{
@@ -85,11 +94,11 @@ main{
 li a {text-decoration : none; color : #2d2f31;}
 
 
-nav {
+/* nav {
     width : 300px; 
     background: #d9d9d9;
     margin : 40px auto; 
-}
+} */
 
 span {
     padding : 30px;
@@ -122,7 +131,15 @@ span::after {
 
 #touch:checked + .slide {height: 300px;} 
 
+.subHeader{
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    border:1px solid black ;
+    text-align: center;
 
+}
 
 /* New Modal */
 body {font-family: Arial, Helvetica, sans-serif;}
