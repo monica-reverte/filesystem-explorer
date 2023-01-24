@@ -1,9 +1,9 @@
 <?php
 
-$deleteFile = $_GET["deletePath"]
+$deleteFile = $_GET["file"];
 
 unlink($deleteFile);
-header("Location: index.php");
+echo json_encode(["file" => $deleteFile]);
 
 
 ?>

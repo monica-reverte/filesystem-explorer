@@ -9,42 +9,37 @@
 		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 		crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="logic.js" defer></script>
+    <script src="logic.js?v=<?php echo time() ?>" defer></script>
     <title>Document</title>
     
 </head>
 
-
-
 <body>
-<header class="header">         
+
+    <header class="header">         
 
         <nav class="navbar bg-primary" >
             <div class="container-fluid search-bar">
-
-            
-            <form class="d-flex" role="search" id="search-form" action="search.php" method="post">
                 <input class="form-control me-2" type="search" placeholder="Search" id="search-input" name="search_term">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit" class="search-button">Search</button>
-            </form>
+                <button id="searchBtn" class="btn btn-secondary my-2 my-sm-0" type="submit" class="search-button">Search</button>
+            
         </div>
         <div id="search-result" class="searchResult main-header-link"></div>
 
         </nav>  
 
-        </header>  
+    </header>  
 
     <main class="main">
 
     <nav class="subHeader navbar mt-3 bg-primary">
 
-
-        
-        <form class="container-fluid justify-content-start" action="back.php" method="post" enctype="multipart/form-data">
+        <div class="container-fluid justify-content-start">
+            
             <input type="file" class="btn m-3 btn-secondary" name="fileToUpload" id="fileToUpload">
-            <input type="button" class="btn m-3 btn-secondary" value="Upload File" name="submit">
+            <input type="button" id="submitUploadBtn" class="btn m-3 btn-secondary" value="Upload File" name="submit">
             <button type="button" class="btn m-3 btn-secondary" id="newBtn">New</button>
-        </form>
+        </div>
 
         <!-- Modal Create -->
         <div id="newModal" class="modal">
@@ -64,63 +59,25 @@
                 </div>
             </div>
         </div>
-        
-        <!-- <div id="newModal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">New</h5>
-                        
-                        
-                </div>
-                <div class="modal-body">
-                    <form action="create.php" method="POST" id="createItems" enctype="multipart/form-data">
-                        <label for="formGroupExampleInput" class="form-label">Enter folder/file name</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" name="file-name">
-                        <button type="cancel">Cancel</button>
-                        <button type="submit">Accept</button>
-                    </form>
-                </div>           
-            </div>
-        </div> -->
     </nav>
         
-
-
     <!-- <div class="container-fluid aside"> -->
     <div id="mainFolder" class="container-fluid aside">
-        
-
-
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-            <button type="button" class="btn btn-primary">Open Menu</button>
-            
+            <button type="button" class="btn btn-primary">Open Menu</button> 
                 <div class="btn-group" role="group">
                     <button id="menu-button" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                        <?php generateMenu("root"); ?>    
-                            
+                        <?php generateMenu("root"); ?>         
                 </div>
         </div>
 
-            
-            
-    
-
-        
-    
-        
-        
-        
-                
-
             <!-- Modal Edit -->
-        
 
             <div class="editModal modal">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit</h5>
-                        
+                        <h5 class="modal-title">Edit</h5>   
                     </div>
                     <div class="modal-body">
                         <form action="edit.php" method="GET" id="editItems" enctype="multipart/form-data">
@@ -141,34 +98,37 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Delete</h5>
-                        
+                        <h5 class="modal-title">Delete</h5> 
                     </div>
                     <div class="modal-body">
-                        <form action="delete.php" method="GET" id="delete" enctype="multipart/form-data">
+                        <!-- <form action="delete.php" method="GET" id="delete" enctype="multipart/form-data"> -->
                             <label for="deleteName" >Do you want to delete?</label>
                             <!-- <input type="hidden" id="fileName" name="delete"> -->
                             <input type="hidden" name="deletePathFile" id="deletePathFile">
                             <button class="btn btn-secondary cancel" type="button">Cancel</button>
-                            <button class="btn mt-1 btn-primary" type="submit">Accept</button>
-                        </form>
+                            <button id ="submitDelete" class="btn mt-1 btn-primary" type="submit">Accept</button>
+                        <!-- </form> -->
                     </div>           
                 </div>
                 </div>
             </div>
-
-
-
-</main>
-</body>
+        </main>
+    </body>
 
 </html>
 
 <?php
+
+$extensionIcon = "";
+$dir = "root";
+$dirEx = explode(".", $dir);
+
+$extension = end($dirEx);
+
+
 function generateMenu($folder) {
     // Use scandir to get the files and folders inside the folder
     $files = array_diff(scandir($folder), array('.','..'));
-
     
     // Create a list element
     echo "<ul id='menu' class='list-group'>";
@@ -178,13 +138,69 @@ function generateMenu($folder) {
         // Check if the file is a folder
         if (is_dir("$folder/$file")) {
             // If it is a folder, create a list item with the folder name
-            echo "<li class='list-group-item folder'>" . $file;
+            echo "<li path='$folder/$file' class='list-group-item folder'>" . $file;
             // Call the function recursively to generate the submenu for the folder
             generateMenu("$folder/$file");
+
+
+
             echo "</li>";
         } else {
+            
+            $extensionIcon = "";
+
+            $dirEx = explode(".", $file);
+
+            $extension = end($dirEx);
+
+switch($extension){
+    case "csv":
+        $extensionIcon = "icons/csv.png";
+        break;
+    case "doc":
+        $extensionIcon = "icons/doc.png";
+        break;
+    case "exe":
+        $extensionIcon = "icons/exe.png";
+        break;
+    case "jpg":
+        $extensionIcon = "icons/jpg.png";
+        break;
+    case "jpeg":
+        $extensionIcon = "icons/jpg.png";
+        break;
+    case "mp3":
+        $extensionIcon = "icons/mp3.png";
+        break;
+    case "mp4":
+        $extensionIcon = "icons/mp4.png";
+        break;
+    case "odt":
+        $extensionIcon = "icons/odt.png";
+        break;
+    case "pdf":
+        $extensionIcon = "icons/pdf.png";
+        break;
+    case "png":
+        $extensionIcon = "icons/png.png";
+        break;
+    case "rar":
+        $extensionIcon = "icons/rar.png";
+        break;
+    case "txt":
+        $extensionIcon = "icons/txt.png";
+        break;
+    case "zip":
+        $extensionIcon = "icons/zip.png";
+        break;
+}
+
             // If it is a file, create a list item with a link to the file
-            echo "<li class='list-group-item file' name = 'file-name'><a class='dropdown-item input-name' href='$folder/$file'> $file </a><button actualPath='$folder/$file' class='btn m-1 btn-dark editBtn'>Edit</button><button deletePath='$folder/$file'class='btn btn-dark delete-button'>Delete</button></li>";
+            echo "<li id='$folder/$file' class='list-group-item file' name = 'file-name'>
+                    <a class='dropdown-item input-name' href='$folder/$file'> <img src='$extensionIcon' width='30px'>  $file </a>
+                    <button actualPath='$folder/$file' class='btn m-1 btn-dark editBtn'>Edit</button>
+                    <button deletePath='$folder/$file'class='btn btn-dark delete-button'>Delete</button>
+                </li>";
 //             $file_path = "$folder/$file";
 //             // Get the file size in MB
 //             $file_size = filesize($file_path);
@@ -200,7 +216,6 @@ function generateMenu($folder) {
         }
     }
     echo "</ul>";
-
 }
 
 ?>
