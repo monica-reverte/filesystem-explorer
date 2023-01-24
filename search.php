@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 if(isset($_POST["search_term"]) && !empty($_POST["search_term"])) {
@@ -41,3 +42,46 @@ if(isset($_POST["search_term"]) && !empty($_POST["search_term"])) {
 echo json_encode($response);
 
 ?>
+=======
+<?php
+
+$searchInputValue = $_GET['search_term'];
+$foldersArray = array();
+$filesArray = array();
+
+function getFilesAndFolders($dir)
+{
+    foreach (glob($dir . "/*") as $ff) {
+        global $foldersArray;
+        global $filesArray;
+        global $searchInputValue;
+
+        if (is_dir($ff)) {
+            $foldernameArr = explode("/", $ff);
+            $foldername = $foldernameArr[count($foldernameArr)-1];
+          if(str_container($foldername, $searchInputValue)){
+            array_push($foldersArray, $ff);
+          }
+    
+          getFilesAndFolders($ff);
+        } else {
+           $filenameArr = explode("/", $ff);
+           $filename = $filenameArr[count($filenameArr)-1];
+            if(str_container($filename, $searchInputValue)){
+              array_push($filesArray, $ff);
+            }
+        }
+    }
+}
+
+getFilesAndFolders('root');
+
+echo json_encode([
+    'ok' => true,
+    'folders' => $foldersArray,
+    'files' => $filesArray,
+    'search' => $serchInputValue,
+]);
+
+?>
+>>>>>>> feature
