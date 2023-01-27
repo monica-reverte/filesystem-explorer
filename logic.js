@@ -4,7 +4,6 @@ const menu = document.getElementById("menu");
 const submitDeleteBtn = document.getElementById('submitDelete');
 const searchInput = document.getElementById('search-input');
 const fileToUpload = document.getElementById('fileToUpload');
-
 const submitUploadBtn = document.getElementById('submitUploadBtn')
 
 let currentFolder = 'root'
@@ -13,7 +12,6 @@ button.addEventListener("click", function() {
     menu.style.display = menu.style.display === "block" ? "none" : "block";
 });
 
-submitDeleteBtn.addEventListener('click', submitDeleteFile)
 
 const folders = document.querySelectorAll(".folder");
 folders.forEach(folder => {
@@ -25,9 +23,9 @@ folders.forEach(folder => {
     });
 });
 
-searchBtn.addEventListener('click', search)
 
-submitUploadBtn.addEventListener('click', submitUpload)
+
+
 
 // New Modal
 // Get the modal
@@ -106,7 +104,7 @@ deleteBtn.forEach(item => {
     
 })
 
-
+submitDeleteBtn.addEventListener('click', submitDeleteFile)
 
 
 let inputHrefD=''
@@ -126,6 +124,8 @@ function submitDeleteFile(){
                 deleteModal.style.display = "none";
                 })
 }
+
+searchBtn.addEventListener('click', search)
 
 function search(){
     let searchValue = searchInput.value
@@ -165,6 +165,7 @@ function search(){
 }
 
 fileToUpload.addEventListener("change", Upload)
+submitUploadBtn.addEventListener('click', submitUpload)
 
 let file = ''
 

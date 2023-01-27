@@ -20,8 +20,8 @@ function getFilesAndFolders($dir)
     
           getFilesAndFolders($ff);
         } else {
-           $filenameArr = explode("/", $ff);
-           $filename = $filenameArr[count($filenameArr)-1];
+            $filenameArr = explode("/", $ff);
+            $filename = $filenameArr[count($filenameArr)-1];
             if(str_container($filename, $searchInputValue)){
               array_push($filesArray, $ff);
             }
