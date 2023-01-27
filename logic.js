@@ -2,7 +2,7 @@ const button = document.getElementById("menu-button");
 const searchBtn = document.getElementById('searchBtn')
 const menu = document.getElementById("menu");
 const submitDeleteBtn = document.getElementById('submitDelete');
-// const searchInput = document.getElementById('search-input');
+const searchInput = document.getElementById('search-input');
 const fileToUpload = document.getElementById('fileToUpload');
 const submitUploadBtn = document.getElementById('submitUploadBtn')
 
