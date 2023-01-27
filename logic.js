@@ -4,7 +4,6 @@ const menu = document.getElementById("menu");
 const submitDeleteBtn = document.getElementById('submitDelete');
 // const searchInput = document.getElementById('search-input');
 const fileToUpload = document.getElementById('fileToUpload');
-
 const submitUploadBtn = document.getElementById('submitUploadBtn')
 
 let currentFolder = 'root'
@@ -13,7 +12,6 @@ button.addEventListener("click", function() {
     menu.style.display = menu.style.display === "block" ? "none" : "block";
 });
 
-submitDeleteBtn.addEventListener('click', submitDeleteFile)
 
 const folders = document.querySelectorAll(".folder");
 folders.forEach(folder => {
@@ -25,9 +23,9 @@ folders.forEach(folder => {
     });
 });
 
-searchBtn.addEventListener('click', search)
 
-submitUploadBtn.addEventListener('click', submitUpload)
+
+
 
 // New Modal
 // Get the modal
@@ -106,37 +104,7 @@ deleteBtn.forEach(item => {
     
 })
 
-
-const searchForm = document.getElementById('search-form');
-const searchInput = document.getElementById('search-input');
-const searchResult = document.getElementById('search-result');
-
-searchForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const searchTerm = searchInput.value;
-
-    fetch('search.php', {
-        method: 'POST',
-        body: JSON.stringify({ search_term: searchTerm }),
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            let html = '';
-            data.data.forEach(result => {
-                html += `<div>${result}</div>`;
-            });
-            searchResult.innerHTML= html;
-        } else {
-        searchResult.innerHTML = 'No se han encontrado resultados para su búsqueda.';
-        }
-        })
-        .catch(error => console.log(error));
-        });
-
-
-
+submitDeleteBtn.addEventListener('click', submitDeleteFile)
 
 
 let inputHrefD=''
@@ -156,6 +124,8 @@ function submitDeleteFile(){
                 deleteModal.style.display = "none";
                 })
 }
+
+searchBtn.addEventListener('click', search)
 
 function search(){
     let searchValue = searchInput.value
@@ -195,6 +165,7 @@ function search(){
 }
 
 fileToUpload.addEventListener("change", Upload)
+submitUploadBtn.addEventListener('click', submitUpload)
 
 let file = ''
 

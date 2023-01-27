@@ -16,23 +16,9 @@
 
 <body>
 
-    <header class="header">         
-
-        <nav class="navbar bg-primary" >
-            <div class="container-fluid search-bar">
-                <input class="form-control me-2" type="search" placeholder="Search" id="search-input" name="search_term">
-                <button id="searchBtn" class="btn btn-secondary my-2 my-sm-0" type="submit" class="search-button">Search</button>
-            
-        </div>
-        <div id="search-result" class="searchResult main-header-link"></div>
-
-        </nav>  
-
-    </header>  
-
-    <main class="main">
-
-    <nav class="subHeader navbar mt-3 bg-primary">
+    <header class="header">   
+        
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
         <div class="container-fluid justify-content-start">
             
@@ -40,9 +26,20 @@
             <input type="button" id="submitUploadBtn" class="btn m-3 btn-secondary" value="Upload File" name="submit">
             <button type="button" class="btn m-3 btn-secondary" id="newBtn">New</button>
         </div>
+            <div class="d-flex m-4 search-bar">
+                <input class="form-control me-sm-2" type="search" placeholder="Search" id="search-input" name="search_term">
+                <button id="searchBtn" class="btn btn-secondary my-2 my-sm-0" type="submit" class="search-button">Search</button>
+                <div id="search-result" class="searchResult main-header-link"></div>
+            </div>
+        
+    </nav>
 
-        <!-- Modal Create -->
-        <div id="newModal" class="modal">
+    </header>  
+
+    <main class="main">
+
+    <!-- Modal Create -->
+    <div id="newModal" class="modal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -59,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </nav>
+    
         
     <!-- <div class="container-fluid aside"> -->
     <div id="mainFolder" class="container-fluid aside">
@@ -101,13 +98,10 @@
                         <h5 class="modal-title">Delete</h5> 
                     </div>
                     <div class="modal-body">
-                        <!-- <form action="delete.php" method="GET" id="delete" enctype="multipart/form-data"> -->
-                            <label for="deleteName" >Do you want to delete?</label>
-                            <!-- <input type="hidden" id="fileName" name="delete"> -->
-                            <input type="hidden" name="deletePathFile" id="deletePathFile">
-                            <button class="btn btn-secondary cancel" type="button">Cancel</button>
-                            <button id ="submitDelete" class="btn mt-1 btn-primary" type="submit">Accept</button>
-                        <!-- </form> -->
+                        <label for="deleteName" >Do you want to delete?</label>
+                        <input type="hidden" name="deletePathFile" id="deletePathFile">
+                        <button class="btn btn-secondary cancel" type="button">Cancel</button>
+                        <button id ="submitDelete" class="btn mt-1 btn-primary" type="submit">Accept</button>
                     </div>           
                 </div>
                 </div>
@@ -142,8 +136,6 @@ function generateMenu($folder) {
             // Call the function recursively to generate the submenu for the folder
             generateMenu("$folder/$file");
 
-
-
             echo "</li>";
         } else {
             
@@ -153,66 +145,70 @@ function generateMenu($folder) {
 
             $extension = end($dirEx);
 
-switch($extension){
-    case "csv":
-        $extensionIcon = "icons/csv.png";
-        break;
-    case "doc":
-        $extensionIcon = "icons/doc.png";
-        break;
-    case "exe":
-        $extensionIcon = "icons/exe.png";
-        break;
-    case "jpg":
-        $extensionIcon = "icons/jpg.png";
-        break;
-    case "jpeg":
-        $extensionIcon = "icons/jpg.png";
-        break;
-    case "mp3":
-        $extensionIcon = "icons/mp3.png";
-        break;
-    case "mp4":
-        $extensionIcon = "icons/mp4.png";
-        break;
-    case "odt":
-        $extensionIcon = "icons/odt.png";
-        break;
-    case "pdf":
-        $extensionIcon = "icons/pdf.png";
-        break;
-    case "png":
-        $extensionIcon = "icons/png.png";
-        break;
-    case "rar":
-        $extensionIcon = "icons/rar.png";
-        break;
-    case "txt":
-        $extensionIcon = "icons/txt.png";
-        break;
-    case "zip":
-        $extensionIcon = "icons/zip.png";
-        break;
+            switch($extension){
+            
+            case "csv":
+                $extensionIcon = "icons/csv.png";
+                break;
+            case "doc":
+                $extensionIcon = "icons/doc.png";
+                break;
+            case "exe":
+                $extensionIcon = "icons/exe.png";
+                break;
+            case "jpg":
+                $extensionIcon = "icons/jpg.png";
+                break;
+            case "jpeg":
+                $extensionIcon = "icons/jpg.png";
+                break;
+            case "mp3":
+                $extensionIcon = "icons/mp3.png";
+                break;
+            case "mp4":
+                $extensionIcon = "icons/mp4.png";
+                break;
+            case "odt":
+                $extensionIcon = "icons/odt.png";
+                break;
+            case "pdf":
+                $extensionIcon = "icons/pdf.png";
+                break;
+            case "png":
+                $extensionIcon = "icons/png.png";
+                break;
+            case "rar":
+                $extensionIcon = "icons/rar.png";
+                break;
+            case "txt":
+                $extensionIcon = "icons/txt.png";
+                break;
+            case "zip":
+                $extensionIcon = "icons/zip.png";
+                break;
+            case "mov":
+                $extensionIcon = "icons/mp4.png";
+                break;
 }
 
             // If it is a file, create a list item with a link to the file
             echo "<li id='$folder/$file' class='list-group-item file' name = 'file-name'>
                     <a class='dropdown-item input-name' href='$folder/$file'> <img src='$extensionIcon' width='30px'>  $file </a>
                     <button actualPath='$folder/$file' class='btn m-1 btn-dark editBtn'>Edit</button>
-                    <button deletePath='$folder/$file'class='btn btn-dark delete-button'>Delete</button>
+                    <button deletePath='$folder/$file'class='btn btn-dark delete-button'>Delete</button>    
                 </li>";
-//             $file_path = "$folder/$file";
-//             // Get the file size in MB
-//             $file_size = filesize($file_path);
-//             $file_size_mb = round($file_size / 1024 / 1024, 2);
+            $file_path = "$folder/$file";
+            // Get the file size in MB
+            $file_size = filesize($file_path);
+            $file_size_mb = round($file_size / 1024 / 1024, 2);
             
-// // Get the last modified time of the file
-// $file_last_modified = filemtime($file_path);
-// $file_last_modified_formatted = date('Y-m-d H:i:s', $file_last_modified);
+            // Get the last modified time of the file
+            $file_last_modified = filemtime($file_path);
+            $file_last_modified_formatted = date('Y-m-d H:i:s', $file_last_modified);
 
-// // Print the file size and last modified time
-// echo "<br>Tamaño del archivo: " . $file_size_mb . " MB";
-// echo "<br>Última vez modificado: " . $file_last_modified_formatted;
+            // Print the file size and last modified time
+            echo "<br>File size: " . $file_size_mb . " MB";
+            echo "<br>Modificated: " . $file_last_modified_formatted;
         }
     }
     echo "</ul>";

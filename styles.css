@@ -1,47 +1,18 @@
-/* body{
-    display: row;
-    flex-direction: column;
-    flex-wrap: wrap;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
-} */
-
-
-/* .navBar{
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: flex;
-    border:1px solid black ;
-    text-align: center;
-
-} */
-
-/* header{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-} */
+.search-bar {
+    width: 20vw;
+}
 
 
 main{
 
     width: 100%;
 }
-
-.subHeader{
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: flex;
-    border:1px solid black ;
-    text-align: center;
-
-}
-
-/* .btn-group{
-    flex-direction: column;
-} */
 
 .aside{
     display: flex;
@@ -50,8 +21,6 @@ main{
     height: 50rem;
     margin-top: 5%;
     flex-wrap: nowrap;
-    align-content: flex-start;
-    justify-content: flex-start;
     align-items: center;
 
 }
@@ -94,12 +63,6 @@ main{
 li a {text-decoration : none; color : #2d2f31;}
 
 
-/* nav {
-    width : 300px; 
-    background: #d9d9d9;
-    margin : 40px auto; 
-} */
-
 span {
     padding : 30px;
     background : #2d2f31; 
@@ -130,55 +93,3 @@ span::after {
 #touch {position: absolute; opacity: 0; height: 0px;}    
 
 #touch:checked + .slide {height: 300px;} 
-
-.subHeader{
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: flex;
-    border:1px solid black ;
-    text-align: center;
-
-}
-
-/* New Modal */
-body {font-family: Arial, Helvetica, sans-serif;}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
