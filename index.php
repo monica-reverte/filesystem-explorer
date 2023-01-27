@@ -212,36 +212,6 @@ function generateMenu($folder) {
         }
     }
     echo "</ul>";
-    echo "<form action='delete.php' method='post' onsubmit='return confirm('¿Estas seguro de eliminar los archivos seleccionados?');'>";
-
 }
 
 ?>
-
-
-<script>
-document.querySelectorAll('.delete-button').forEach(function(button) {
-    button.addEventListener('click', function(event) {
-        event.preventDefault();
-        var file = event.target.value;
-        var folder = "<?php echo $folder ?>";
-        var data = { file: file, folder: folder };
-        fetch('delete.php', {
-            method: 'DELETE',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(function(response) {
-            return response.text();
-        }).then(function(data) {
-console.log(data);
-// Aquí puedes actualizar la página o mostrar un mensaje de éxito/error al usuario
-})
-.catch(function(error) {
-console.error(error);
-});
-});
-});
-</script>

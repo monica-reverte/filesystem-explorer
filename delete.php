@@ -7,4 +7,3 @@ echo json_encode(["file" => $deleteFile]);
 
 
 ?>
-

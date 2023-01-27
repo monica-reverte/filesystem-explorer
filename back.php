@@ -14,4 +14,3 @@ if (isset($_FILES['file'])) {
     ]);
 }
 
-    ?>
