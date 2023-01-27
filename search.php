@@ -14,7 +14,7 @@ function getFilesAndFolders($dir)
         if (is_dir($ff)) {
             $foldernameArr = explode("/", $ff);
             $foldername = $foldernameArr[count($foldernameArr)-1];
-          if(str_container($foldername, $searchInputValue)){
+          if(str_contains($foldername, $searchInputValue)){
             array_push($foldersArray, $ff);
           }
     
@@ -22,7 +22,7 @@ function getFilesAndFolders($dir)
         } else {
             $filenameArr = explode("/", $ff);
             $filename = $filenameArr[count($filenameArr)-1];
-            if(str_container($filename, $searchInputValue)){
+            if(str_contains($filename, $searchInputValue)){
               array_push($filesArray, $ff);
             }
         }
@@ -35,7 +35,7 @@ echo json_encode([
     'ok' => true,
     'folders' => $foldersArray,
     'files' => $filesArray,
-    'search' => $serchInputValue,
+    'search' => $searchInputValue,
 ]);
 
 ?>
